@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <p class="description" innerHTML="{{ 'SELECTEDAREAS.Instructions' | translate }}"></p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-segment (ionChange)="segmentChanged()" scrollable [(ngModel)]="areaSegment">
+          <ion-segment-button [value]="fist_segment">
+            <ion-label [innerHTML]="fist_segment"></ion-label>
+          </ion-segment-button>
+          <ion-segment-button *ngIf="second_area_array" [value]="second_segment">
+            <ion-label [innerHTML]="second_segment"></ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+
+    <div [ngSwitch]="areaSegment">
+      <ng-container *ngSwitchCase="fist_segment">
+        <ion-row>
+          <ion-col size-lg="4" size-md="6" size-xs="12" *ngFor="let item of first_area_array?.temas; index as i">
+            <div class="area-item" (click)="setSubAreas(item.value, i, 'f')" [ngClass]="{ 'area-item-selected' : item.selected == item.value }">
+              <h4>{{ item.titulo[index] }}</h4>
+              <!-- <small *ngIf="item.subtitulo">{{ item.subtitulo[index] }}</small> -->
+              <div class="more-info-btn" (click)="presentModal(item)">?</div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      <div *ngIf="second_area_array">
+        <ng-container *ngSwitchCase="second_segment">
+          <ion-row>
+            <ion-col size-lg="4" size-md="6" size-xs="12" *ngFor="let item of second_area_array?.temas; index as i">
+              <div class="area-item" (click)="setSubAreas(item.value, i, 's')" [ngClass]="{ 'area-item-selected' : item.selected == item.value }">
+                <h4>{{ item.titulo[index] }}</h4>
+                <!-- <small *ngIf="item.subtitulo">{{ item.subtitulo[index] }}</small> -->
+                <div class="more-info-btn" (click)="presentModal(item)">?</div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+      </div>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col class="ion-text-center" *ngIf="second_area_array">        
+          <ion-button class="mimento-btn" *ngIf="array_selected.length >= 1 && array_selected1.length >= 1" (click)="nextStep()">{{ 'HELPAREAS.Button' | translate }}</ion-button>
+        </ion-col>
+        <ion-col class="ion-text-center" *ngIf="!second_area_array">        
+          <ion-button class="mimento-btn" *ngIf="array_selected.length >= 1" (click)="nextStep()">{{ 'HELPAREAS.Button' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

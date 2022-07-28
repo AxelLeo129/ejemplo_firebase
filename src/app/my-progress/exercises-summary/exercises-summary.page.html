@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <header>
+          <p innerHTML="{{ 'EXERCISESSUMMARY.Instructions' | translate }}"></p>
+        </header>
+      </ion-col>
+    </ion-row>
+
+
+    <div class="excercises-list">
+
+      <ion-row>
+        <ng-container *ngIf="!load || !exercises || !exercises.length; else exercises_sumary">
+          <ion-col size-md="6" size-xs="12">
+            <div class="exercise-card">
+              <div class="exercise-name">
+                <h3>{{ 'EXERCISESSUMMARY.Title' | translate }}</h3>
+              </div>
+              <div class="exercise-time">
+                <a routerLink="/ejercicios/principales/ejercicios">{{ 'EXERCISESSUMMARY.A1' | translate }}</a>
+              </div>
+            </div>
+          </ion-col>
+        </ng-container>
+        <ng-template #exercises_sumary>
+          <ion-col size-md="6" size-xs="12" *ngFor="let item of exercises">
+            <div class="exercise-card" [ngClass]="item.clase" (click)="seeSummary(item.id)">
+              <div class="exercise-name">
+                <h3>{{ item.texto[index] }}</h3>
+              </div>
+              <div class="exercise-time">
+                <a>{{ 'EXERCISESSUMMARY.A' | translate }}</a>
+              </div>
+            </div>
+          </ion-col>
+        </ng-template>
+      </ion-row>
+    </div>
+
+  </ion-grid>
+
+</ion-content>

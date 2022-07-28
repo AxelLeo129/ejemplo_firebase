@@ -1,0 +1,104 @@
+ion-slides {
+    --bullet-background: var(--ion-color-medium-tint);
+    --bullet-background-active: var(--ion-color-primary);
+    ion-slide {
+        height: 100%;
+        ion-grid {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+ion-grid {
+    padding-bottom: 40px;
+}
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+}
+.logo {
+    margin-left: 10px;
+    img {
+        width: 80px;
+    }
+}
+.btn-skip-intro {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.onboarding-img {
+    margin: 5% auto 5px auto;
+
+    img {
+        width: 280px;
+        height: auto;
+    }
+}
+.onboarding-text {
+    h3 {
+        color: var(--ion-color-primary);
+        font-size: 1.2rem;
+    }
+    p {
+        color: var(--ion-color-primary);
+        font-size: 1.2rem;
+        padding: 0 30px 30px 30px;
+        min-height: 130px;
+    }
+}
+
+.slide-5 {
+    .btn-skip-intro {
+        display: none;
+    }
+    .onboarding-img {
+        margin-top: 5%;
+    }
+    .onboarding-text {
+        p {
+            padding: 0 30px 20px 30px;
+        }
+    }
+    ion-button {
+        margin: 0 30px;
+    }
+    .btn-goto-signup {
+        border: 1px;
+        width: 200px;
+        height: 40px;
+    }
+}
+
+.h100 {
+    height: 100%;
+}
+.w100 {
+    width: 100%;
+}
+@media screen and (min-width: 768px) {
+    ion-slide {
+        ion-grid {
+            height: 100vh;
+            ion-row {
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+@media screen and (max-width: 320px) {
+    .onboarding-img {
+        img {
+            width: 220px;
+        }
+    }
+    .onboarding-text p {
+        padding: 0 !important;
+        min-height: 60px;
+        font-size: 0.9rem;
+    }
+}

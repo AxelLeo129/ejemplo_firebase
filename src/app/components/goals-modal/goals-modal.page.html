@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div slot="start">
+      <ion-button fill='clear' slot="end" (click)="cancel()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-grid class="ion-text-center">
+  <ion-row>
+    <ion-col>
+      <header>
+        <h3>{{ 'MODALGOALS.Title' | translate }}</h3>
+      </header>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div class="create-goal">
+        <form (ngSubmit)="setGoal()" [formGroup]="goalForm">
+          <ion-datetime placeholder="{{ 'GOALS.Placeholder1' | translate }}" [min]="min_date" [max]="max_date" doneText="Ok" display-format="DD-MM-YYYY"
+              formControlName="date" name="date" picker-format="DD MM YYYY"></ion-datetime>
+          <ion-textarea formControlName="text" name="text" rows="6" cols="10"
+            placeholder="{{ 'GOALS.Placeholder' | translate }}">
+          </ion-textarea>
+          <br>
+          <ion-button [disabled]="!goalForm.valid" type="submit" fill="outline" color="primary" class="mimento-btn">
+            {{ 'MODALGOALS.Button' | translate }}
+          </ion-button>
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>

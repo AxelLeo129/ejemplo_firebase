@@ -1,0 +1,187 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="false" #slides>
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <header>
+              <h3 innerHTML="{{ 'ADDPAYMENT.Instructions' | translate }}"></h3>
+            </header>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <div class="add-payment-form">
+              <form [formGroup]="paymentForm" (ngSubmit)="setCard()">
+                <input type="text" formControlName="card_number" name="card_number" clearInput
+                  mask="0000 0000 0000 0000" placeholder="{{ 'ADDPAYMENT.Placeholder' | translate }}">
+                <div class="errors" *ngIf="card_number.invalid && (card_number.dirty || card_number.touched)">
+                  <span *ngIf="card_number.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                  <span *ngIf="card_number.errors.minlength">
+                    <small>{{ 'ADDPAYMENT.Error1' | translate }}</small>
+                  </span>
+                </div>
+                <br>
+                <input type="text" formControlName="cc_cvv2" name="cc_cvv2" clearInput mask="000"
+                  placeholder="{{ 'ADDPAYMENT.PlaceholderCVV' | translate }}">
+                <div class="errors" *ngIf="cc_cvv2.invalid && (cc_cvv2.dirty || cc_cvv2.touched)">
+                  <span *ngIf="cc_cvv2.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                  <span *ngIf="cc_cvv2.errors.minlength">
+                    <small>{{ 'ADDPAYMENT.Error1' | translate }}</small>
+                  </span>
+                </div>
+
+                <ion-input type="text" formControlName="owner_name" name="owner_name" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder1' | translate }}"></ion-input>
+                <div class="errors" *ngIf="owner_name.invalid && (owner_name.dirty || owner_name.touched)">
+                  <span *ngIf="owner_name.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+                <div class="ion-text-center datetime">
+                  <ion-datetime formControlName="date" name="date" displayFormat="MM-YYYY" [min]="min_date"
+                    [max]="max_date" placeholder="{{ 'ADDPAYMENT.Placeholder2' | translate }}"></ion-datetime>
+                  <div class="errors" *ngIf="date.invalid && (date.dirty || date.touched)">
+                    <span *ngIf="date.errors.required">
+                      <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                    </span>
+                  </div>
+                </div>
+                <ion-input type="text" formControlName="nit" name="nit" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder12' | translate }}"></ion-input>
+                <div class="errors" *ngIf="nit.invalid && (nit.dirty || nit.touched)">
+                  <span *ngIf="nit.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+                <ion-input type="text" formControlName="bill_name" name="bill_name" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder11' | translate }}"></ion-input>
+                <div class="errors" *ngIf="bill_name.invalid && (bill_name.dirty || bill_name.touched)">
+                  <span *ngIf="bill_name.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+                <ion-input type="text" formControlName="bill_address" name="bill_address" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder13' | translate }}"></ion-input>
+                <div class="errors" *ngIf="bill_address.invalid && (bill_address.dirty || bill_address.touched)">
+                  <span *ngIf="bill_address.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+                <div class="ion-text-center">
+                  <ion-button class="mimento-btn" type="submit" [disabled]="!paymentForm.valid">
+                    {{ 'ADDPAYMENT.Button' | translate }}
+                  </ion-button>
+                </div>
+              </form>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <header>
+              <h3 innerHTML="{{ 'ADDPAYMENT.Instructions1' | translate }}"></h3>
+            </header>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="userForm">
+          <ion-col>
+            <div class="add-payment-form">
+              <form [formGroup]="userForm" (ngSubmit)="setUserInfo()">
+
+                <ion-input type="text" formControlName="fist_name" name="fist_name" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder3' | translate }}"></ion-input>
+                <div class="errors" *ngIf="fist_name.invalid && (fist_name.dirty || fist_name.touched)">
+                  <span *ngIf="fist_name.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+
+                <ion-input type="text" formControlName="last_name" name="last_name" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder4' | translate }}"></ion-input>
+                <div class="errors" *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)">
+                  <span *ngIf="last_name.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+
+                <ion-input type="text" formControlName="address" name="address" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder5' | translate }}"></ion-input>
+                <div class="errors" *ngIf="address.invalid && (address.dirty || address.touched)">
+                  <span *ngIf="address.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+
+                <ion-input type="text" formControlName="city" name="city" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder8' | translate }}"></ion-input>
+                <div class="errors" *ngIf="city.invalid && (city.dirty || city.touched)">
+                  <span *ngIf="city.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+
+                <ion-input type="text" formControlName="state" name="state" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder9' | translate }}"></ion-input>
+                <div class="errors" *ngIf="state.invalid && (state.dirty || state.touched)">
+                  <span *ngIf="state.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+
+                <ion-input type="number" formControlName="zip" name="zip" clearInput
+                  placeholder="{{ 'ADDPAYMENT.Placeholder10' | translate }}"></ion-input>
+                <div class="errors" *ngIf="zip.invalid && (zip.dirty || zip.touched)">
+                  <span *ngIf="zip.errors.required">
+                    <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+                  </span>
+                </div>
+
+                <div class="ion-text-center datetime">
+                  <ion-label>{{'ADDPAYMENT.PlaceholderPais' | translate}}</ion-label>
+                  <ion-select formControlName="country" okText="Aceptar" cancelText="Cancelar">
+                    <ion-select-option selected value="" disabled>* {{'ADDPAYMENT.PlaceholderPais' | translate}}
+                    </ion-select-option>
+                    <ion-select-option *ngFor="let p of paises" value="{{p.name}}">{{p.name}}</ion-select-option>
+                  </ion-select>
+                </div>
+
+                <div class="ion-text-center">
+                  <ion-button class="mimento-btn" type="submit">{{ 'ADDPAYMENT.Button1' | translate }}
+                  </ion-button>
+                </div>
+              </form>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

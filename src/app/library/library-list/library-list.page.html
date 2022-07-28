@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="chevron-back-outline"></ion-back-button>    
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h3>{{ 'NOTAS.Title' | translate }}</h3>
+      </ion-col>
+    </ion-row>
+
+
+    <div class="excercises-list">
+      <ion-row @list>
+        <!-- <div *ngIf="!load; else fullable">
+          <ion-col size-md="6" size-xs="12">
+            <div class="exercise-card exercise-2">
+              <div class="exercise-name">
+                <h3><ion-skeleton-text animated></ion-skeleton-text></h3>
+              </div>
+            </div>
+          </ion-col>
+        </div>
+        <ng-template #fullable> -->
+          <ion-col @items *ngFor="let i of cards" size-md="6" size-xs="12">
+            <div (click)="ruta(i)" class="exercise-card" [ngClass]="i.clase">
+              <div class="exercise-name">
+                <h3>{{i.texto[index]}}</h3>
+              </div>
+            </div>
+          </ion-col>
+        <!-- </ng-template> -->
+      </ion-row>
+    </div>
+
+
+  </ion-grid>
+
+</ion-content>

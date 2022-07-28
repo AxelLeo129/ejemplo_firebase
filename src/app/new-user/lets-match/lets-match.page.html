@@ -1,0 +1,206 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h3 innerHTML="{{ 'Match.Intructions' | translate }}"></h3>
+      </ion-col>
+    </ion-row>
+
+    <form [formGroup]="matchForm">
+      <ion-row>
+        <ion-col>
+          <div class="therapist-specs">
+            <h3>{{ 'Match.Fist' | translate }}</h3>
+            <ion-list>
+              <ion-radio-group formControlName="genre">
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Fist1' | translate }}</ion-label>
+                      <ion-radio slot="start" value="M"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Fist2' | translate }}</ion-label>
+                      <ion-radio slot="start" value="F"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Fist3' | translate }}</ion-label>
+                      <ion-radio slot="start" value="sin-preferencia"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Fist4' | translate }}</ion-label>
+                      <ion-radio slot="start" value="otro"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-list>
+            <ng-container class="errors" *ngIf="genre.invalid && (genre.dirty || genre.touched)">
+              <span *ngIf="genre.errors.required">
+                <small>{{ errorMessages.genre.message }}</small>
+              </span>
+            </ng-container>
+            <h3>{{ 'Match.Second' | translate }}</h3>
+            <ion-list>
+              <ion-radio-group formControlName="age">
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Second1' | translate }}</ion-label>
+                      <ion-radio slot="start" value="mayor"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Second2' | translate }}</ion-label>
+                      <ion-radio slot="start" value="menor"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Second3' | translate }}</ion-label>
+                      <ion-radio slot="start" value="sin-preferencia"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-list>
+            <ng-container class="errors" *ngIf="age.invalid && (age.dirty || age.touched)">
+              <span *ngIf="age.errors.required">
+                <small>{{ errorMessages.age.message }}</small>
+              </span>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <div class="about-me">
+            <h2>{{ 'Match.Third' | translate }}</h2>
+            <h3>{{ 'Match.Third0' | translate }}</h3>
+            <ion-list>
+              <ion-radio-group value="masculino">
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Third1' | translate }}</ion-label>
+                      <ion-radio slot="start" value="masculino"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Third2' | translate }}</ion-label>
+                      <ion-radio slot="start" value="git femenino"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Third3' | translate }}</ion-label>
+                      <ion-radio slot="start" value="sin-preferencia"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-item lines="none" class="ion-text-wrap ">
+                      <ion-label>{{ 'Match.Fist4' | translate }}</ion-label>
+                      <ion-radio slot="start" value="otro"></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-list>
+            <h3>{{ 'Match.Fourth' | translate }}</h3>
+            <ion-datetime formControlName="birth" [max]="fecha_hoy" placeholder="{{ 'Match.Fourth1' | translate }}">
+            </ion-datetime>
+            <ng-container class="errors" *ngIf="birth.invalid && (birth.dirty || birth.touched)">
+              <span *ngIf="birth.errors.required">
+                <small>{{ errorMessages.birth.message }}</small>
+              </span>
+            </ng-container>
+            <h3>{{ 'Match.Fifth' | translate }}</h3>
+            <ion-list>
+              <ion-item lines="none" class="ion-text-wrap ">
+                <ion-select formControlName="schedule" name="schedule" placeholder="{{ 'Match.Fifth' | translate }}">
+                  <ion-select-option *ngFor="let item of schedules" value="{{ item.id1 }}">
+                    {{ 'Match.Fifth5' | translate }} {{ item.minimo }} {{ item.min_sufix }}
+                    {{ 'Match.Fifth6' | translate }}
+                    {{ item.maximo }} {{ item.max_sufix }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+            <ng-container class="errors" *ngIf="schedule.invalid && (schedule.dirty || schedule.touched)">
+              <span *ngIf="schedule.errors.required">
+                <small>{{ errorMessages.schedule.message }}</small>
+              </span>
+            </ng-container>
+            <h3>{{ 'Match.Sixth' | translate }}<a (click)="presentPopover($event)">
+                <ion-icon name="help-circle-outline"></ion-icon>
+              </a></h3>
+            <ion-list>
+              <ion-radio-group formControlName="son">
+                <ion-row>
+                  <ion-col>
+                    <ion-item lines="none">
+                      <ion-label>{{ 'Match.Sixth1' | translate }}</ion-label>
+                      <ion-radio slot="start" value="si"></ion-radio>
+                    </ion-item>
+                    <ion-item lines="none">
+                      <ion-label>{{ 'Match.Sixth2' | translate }}</ion-label>
+                      <ion-radio slot="start" value="no"></ion-radio>
+                    </ion-item>
+                    <ng-container class="errors" *ngIf="son.invalid && (son.dirty || son.touched)">
+                      <span *ngIf="son.errors.required">
+                        <small>{{ errorMessages.son.message }}</small>
+                      </span>
+                    </ng-container>
+                  </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-list>
+          </div>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-button class="mimento-btn" type="submit" [disabled]="!matchForm.valid" (click)="setFilters()">
+            {{ 'Match.Button' | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </ion-grid>
+</ion-content>
+
+<input [id]="'getImage'+id" class="noshow" type="file" accept="image/*" (change)="changeListener($event)">

@@ -1,0 +1,90 @@
+ion-grid {
+    max-width: 500px;
+}
+ion-item {
+    display: flex;
+    flex-direction: column;
+}
+
+ion-card {
+    box-shadow: 0 3px 10px #00000010;
+    ion-card-content {
+        * {
+            font-size: 1rem;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        p:nth-last-child(1) {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.divider {
+    background: #dbdbdb;
+    height: 1px;
+    margin: 20px 0;
+}
+
+.card-my-subscription,
+.card-my-payment-method {
+    ion-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0;
+
+        h3 {
+            margin: 0px;
+        }
+    }
+    ion-card-content {
+        padding-bottom: 0;
+    }
+    .card-footer {
+        padding-bottom: 10px;
+    }
+}
+
+.emergency-phone {
+    h3 {
+        display: flex;
+        justify-content: center;
+        .more-info-btn {
+            margin-left: 10px;
+            display: inline;
+            position: initial;
+            top: 0;
+            transform: none;
+        }
+    }
+}
+.request-session-card {
+    border: solid 1px var(--ion-color-secondary);
+    ion-card-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        * {
+            color: var(--ion-color-secondary);
+        }
+        ion-icon {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.card-links {
+    a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--ion-color-medium);
+        margin-bottom: 10px;
+
+        ion-icon {
+            margin-right: 6px;
+        }
+    }
+}

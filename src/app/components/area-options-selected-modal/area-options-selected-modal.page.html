@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()" fill="clear" slot="start">
+        <ion-icon slot="start" name="close-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col size="12">
+        <h4>{{ 'SELECTEDAREAS.Titlemodal' | translate }}</h4>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3 [innerHTML]="titulo"></h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-lg="4" size-md="6" size-xs="12" *ngFor="let item of fist_array">
+        <div class="option-selected">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          <div class="option-name">
+            <h4>{{ item.titulo[index] }}</h4>
+            <small *ngIf="item.subtitulo" [innerHTML]="item.subtitulo[index]"></small>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="titulo1">
+      <ion-col>
+        <h3 [innerHTML]="titulo1"></h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="second_array">
+      <ion-col size-lg="4" size-md="6" size-xs="12" *ngFor="let item of second_array">
+        <div class="option-selected">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          <div class="option-name">
+            <h4>{{ item.titulo[index] }}</h4>
+            <small *ngIf="item.subtitulo" [innerHTML]="item.subtitulo[index]"></small>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button class="mimento-btn" (click)="next()">{{ 'SELECTEDAREAS.Button' | translate }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

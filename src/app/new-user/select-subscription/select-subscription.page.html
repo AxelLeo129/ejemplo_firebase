@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3 class="title">{{ user?.nombre }}</h3>
+          <div class="gift-banner" *ngIf="free_try">
+            <img src="/assets/imgs/gift-box.svg" alt="">
+            <h3 innerHTML="{{ 'SELECTSUBSCRIPTION.Alert' | translate }}"></h3>
+          </div>
+          <p class="description" innerHTML="{{ 'SELECTSUBSCRIPTION.Instructions' | translate }}"></p>
+          <small>{{ 'SELECTSUBSCRIPTION.Small' | translate }}</small>
+        </header>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="subscription-slider">
+          <ion-slides pager="false" #slides>
+
+            <ion-slide *ngFor="let item of suscriptions">
+              <div class="subscription-card">
+                <div class="subscription-name">
+                  <h3>{{ item.nombre[index] }}</h3>
+                </div>
+                <div class="divider"></div>
+                <div class="features">
+                  <ion-label>Chat:</ion-label>
+                  <p>{{ 'SELECTSUBSCRIPTION.Days' | translate }} {{ item.dias_disponibles }}</p>
+                  <!-- <ion-label>{{ 'SELECTSUBSCRIPTION.Answers' | translate }}</ion-label> -->
+                  <p>{{ 'SELECTSUBSCRIPTION.Minutes' | translate }} {{ item.minutos_dia }}</p>
+                  <ion-label>{{ 'SELECTSUBSCRIPTION.Validity' | translate }}</ion-label>
+                  <p>{{ 'SELECTSUBSCRIPTION.Days' | translate }} {{ item.dias_vigencia }}</p>
+                  <p *ngIf="item.permite_live_session">
+                    {{ 'SELECTSUBSCRIPTION.Live' | translate }} {{ item.live_minutes }}
+                    {{ 'SELECTSUBSCRIPTION.Live_after' | translate }}
+                  </p>
+                  <!-- <ion-label *ngIf="item.permite_live_session">{{ 'SELECTSUBSCRIPTION.Live_message_1' | translate }} {{ item.live_minutes }} {{ 'SELECTSUBSCRIPTION.Live_message_2' | translate }}</ion-label> -->
+                </div>
+                <div class="divider"></div>
+                <div class="price">
+                  <h3><span>Q</span>{{ item.precio }}</h3>
+                  <!-- <small>pagas cuando necesites</small> -->
+                </div>
+                <ion-button class="select-btn" (click)="summary(item.id)">
+                  {{ 'SELECTSUBSCRIPTION.Button1' | translate }}</ion-button>
+              </div>
+            </ion-slide>
+
+          </ion-slides>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar [ngClass]="data_res?.clase">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-blano-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="exercise-wrapper" [ngClass]="data_res?.clase">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="exercise-content">
+
+            <div class="title">
+              <h3>{{ 'EXERCISEDETAILS.Title' | translate }}</h3>
+            </div>
+            <div class="description">
+              <p>{{ data_res?.texto[index] }}</p>
+            </div>
+            <div class="divider"></div>
+
+            <div class="exercise-summary">
+              <div class="summary-item" *ngFor="let item of questions">
+                <div *ngIf="item?.texto_resumen && data_res?.respuestas[item.id]">
+                  <h4>
+                    {{ item?.texto_resumen[index] }}
+                  </h4>
+                  <p *ngIf="item.tipo == 'L' || item.tipo == 'C'"> {{data_res?.respuestas[item.id]?.respuesta}}</p>
+                  <div *ngIf="item.tipo == 'M'">
+                    <p *ngFor="let r of data_res?.respuestas[item.id]">{{r.texto[index]}}</p>
+                  </div>
+                  <p *ngIf="item.tipo == 'R'"> {{data_res?.respuestas[item.id]?.respuesta}}</p>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="summary-item">
+                <h4>
+                  {{ 'EXERCISEDETAILS.When' | translate }}
+                </h4>
+                <p>{{ data_res?.fecha_final | date:'dd/MM/yyyy' }}</p>
+              </div>
+              <!-- <div class="summary-item">
+                <h4>
+                  Tú, automáticamente pensaste esto:
+                </h4>
+                <p>Incomodo por la situación</p>
+              </div> -->
+            </div>
+
+            <div class="divider"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </div>
+</ion-content>

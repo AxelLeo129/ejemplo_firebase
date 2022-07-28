@@ -1,0 +1,309 @@
+<ion-header [translucent]="true">
+  <ion-toolbar [ngClass]="ejercicio.clase">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-blano-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="exercise-wrapper" [ngClass]="ejercicio.clase">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-slides pager="false" #slides (ionSlideWillChange)="slideChanged()">
+            <ion-slide>
+              <!-- <ion-slide class="area"></ion-slide> -->
+              <!-- <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul> -->
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="exercise-content">
+                      <div class="title">
+
+                        <h3>{{ejercicio.texto}}</h3>
+                      </div>
+                      <div class="divider"></div>
+                      <div class="description">
+                        <p>{{ejercicio.descripcion}}</p>
+                      </div>
+                      <div class="time">
+                        <p>
+                          <ion-icon name="timer-outline"></ion-icon>{{ejercicio.tiempo}} minutos
+                        </p>
+                      </div>
+                      <ion-button class="start-btn" (click)="empezar()">{{ 'EXERCISE.Button1' | translate }}
+                      </ion-button>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-slide>
+
+            <ion-slide *ngFor="let q of questions; index as i">
+              <div class="exercise-content">
+                <!-- PREGUNTA TIPO MÚLTIPLE -->
+                <div *ngIf="q.tipo == 'M'">
+                  <div class="exercise-header">
+                    <div class="title">
+                      <h3>{{ejercicio.texto}}</h3>
+                    </div>
+                    <div class="steps-timer">
+                      <div class="exercise-steps" *ngIf="q.index != ''">
+                        {{q.index}} {{ 'EXERCISE.Of' | translate }} {{slides_number}}
+                      </div>
+                      <div class="time">
+                        <ion-icon name="timer-outline"></ion-icon>{{minutes_string}}:{{seconds_string}}
+                        {{ 'EXERCISE.Time' | translate }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="exercise-step" @list>
+
+                    <p class="intructions">{{q.texto}}</p>
+                    <img *ngIf="q.imagen" [src]="q.imagen" class="p-imagen">
+                    <!-- <p class="intructions">
+                      Elige un momento
+                    </p> -->
+                    <div *ngFor="let r of respuestas; index as a" class="option-btn" @items
+                      [ngClass]="{'active-answer': r.selected }" @items (click)="setInfo(q, r, i, a)">
+                      {{r.texto[index]}}
+                      <img *ngIf="r.imagen" [src]="r.imagen" class="inline-images">
+                    </div>
+                  </div>
+                  <br>
+                  <div [ngClass]="{'active-answer': actualSlide === q.id }" class="option-btn"
+                    (click)="nextSlide(i, q.tipo, q)">
+                    {{ 'EXERCISE.Segue' | translate }}
+                  </div>
+                </div>
+                <!-- PREGUNTA TIPO LIBRE -->
+                <div *ngIf="q.tipo == 'L'">
+                  <div class="exercise-header">
+                    <div class="title">
+                      <h3>{{ejercicio.texto}}</h3>
+                    </div>
+                    <div class="steps-timer">
+                      <div class="exercise-steps" *ngIf="q.index != ''">
+                        {{q.index}} {{ 'EXERCISE.Of' | translate }} {{slides_number}}
+                      </div>
+                      <div class="time">
+                        <ion-icon name="timer-outline"></ion-icon>{{minutes_string}}:{{seconds_string}}
+                        {{ 'EXERCISE.Time' | translate }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="exercise-step">
+
+                    <p class="intructions">
+                      {{q.texto}}
+                    </p>
+                    <img *ngIf="q.imagen" [src]="q.imagen">
+                    <ion-textarea rows="4" cols="20" placeholder="Escribe aqui" [(ngModel)]="text"></ion-textarea>
+                    <br>
+                    <div [ngClass]="{'active-answer': actualSlide === q.id }" class="option-btn"
+                      (click)="nextSlide(i, q.tipo, q)">
+                      {{ 'EXERCISE.Segue' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <!-- PREGUNTA TIPO ESCALA VERTICAL -->
+                <div *ngIf="q.tipo == 'E'">
+                  <div class="exercise-header">
+                    <div class="title">
+                      <h3>{{ejercicio.texto}}</h3>
+                    </div>
+                    <div class="steps-timer">
+                      <div class="exercise-steps" *ngIf="q.index != ''">
+                        {{q.index}} {{ 'EXERCISE.Of' | translate }} {{slides_number}}
+                      </div>
+                      <div class="time">
+                        <ion-icon name="timer-outline"></ion-icon>{{minutes_string}}:{{seconds_string}}
+                        {{ 'EXERCISE.Time' | translate }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="exercise-step">
+
+                    <p class="intructions">
+                      {{q.texto}}
+                    </p>
+                    <img *ngIf="q.imagen" [src]="q.imagen">
+                    <div class="wrapper-range">
+                      <div class="text-label">
+                        {{getLabelText(range)}}
+                      </div>
+                      <div class="images">
+                        <img (click)="ranger(5)" [ngClass]="{'showimg': range >= 5}" class="img1"
+                          src="./../../../assets/escala/p1.svg">
+                        <img (click)="range = 4" [ngClass]="{'showimg': range >= 4}" class="img2"
+                          src="./../../../assets/escala/p2.svg">
+                        <img (click)="range = 3" [ngClass]="{'showimg': range >= 3}" class="img3"
+                          src="./../../../assets/escala/p3.svg">
+                        <img (click)="range = 2" [ngClass]="{'showimg': range >= 2}" class="img4"
+                          src="./../../../assets/escala/p4.svg">
+                        <img (click)="range = 1" class="img5 showimg" src="./../../../assets/escala/p5.svg">
+                      </div>
+                    </div>
+                    <br>
+                    <div [ngClass]="{'active-answer': actualSlide === q.id }" class="option-btn"
+                      (click)="nextSlide(i, q.tipo, q)">
+                      {{ 'EXERCISE.Segue' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <!-- PREGUTNA TIPO MENSAJE -->
+                <div *ngIf="q.tipo == 'S'">
+                  <div class="exercise-header">
+                    <div class="title">
+                      <h3>{{ejercicio.texto}}</h3>
+                    </div>
+                    <div class="steps-timer">
+                      <div class="exercise-steps" *ngIf="q.index != ''">
+                        {{q.index}} {{ 'EXERCISE.Of' | translate }} {{slides_number}}
+                      </div>
+                      <div class="time">
+                        <ion-icon name="timer-outline"></ion-icon>{{minutes_string}}:{{seconds_string}}
+                        {{ 'EXERCISE.Time' | translate }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="exercise-step">
+
+                    <p class="intructions">
+                      {{q.texto}}
+                    </p>
+                    <img *ngIf="q.imagen" [src]="q.imagen">
+                    <br>
+                    <div [ngClass]="{'active-answer': actualSlide === q.id }" class="option-btn"
+                      (click)="nextSlide(i, q.tipo, q)">
+                      {{ 'EXERCISE.Segue' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="q.tipo == 'R'">
+                  <div class="exercise-header">
+                    <div class="title">
+                      <h3>{{ejercicio.texto}}</h3>
+                    </div>
+                    <div class="steps-timer">
+                      <div class="exercise-steps" *ngIf="q.index != ''">
+                        {{q.index}} {{ 'EXERCISE.Of' | translate }} {{slides_number}}
+                      </div>
+                      <div class="time">
+                        <ion-icon name="timer-outline"></ion-icon>{{minutes_string}}:{{seconds_string}}
+                        {{ 'EXERCISE.Of' | translate }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="exercise-step">
+                    <p class="intructions">
+                      {{q.texto}}
+                    </p>
+                    <ion-range min="1" color="primary" pin="true" [(ngModel)]="range"></ion-range>
+                    <br>
+                    <div [ngClass]="{'active-answer': actualSlide === q.id }" class="option-btn"
+                      (click)="nextSlide(i, q.tipo, q)">
+                      {{ 'EXERCISE.Segue' | translate }}
+                    </div>
+                  </div>
+                </div>
+                <!-- PREGUNTA TIPO MEDIDOR -->
+                <div *ngIf="q.tipo == 'C'">
+                  <div class="exercise-header">
+                    <div class="title">
+                      <h3>{{ejercicio.texto}}</h3>
+                    </div>
+                    <div class="steps-timer">
+                      <div class="exercise-steps" *ngIf="q.index != ''">
+                        {{q.index}} {{ 'EXERCISE.Of' | translate }} {{slides_number}}
+                      </div>
+                      <div class="time">
+                        <ion-icon name="timer-outline"></ion-icon>{{minutes_string}}:{{seconds_string}}
+                        {{ 'EXERCISE.Of' | translate }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
+
+                  <div class="exercise-step">
+                    <p class="intructions">
+                      {{q.texto}}
+                    </p>
+                    <div class="ion-text-center" style="display:flex;justify-content:center;align-items:center;">
+                      <div class="gauge-wrapper">
+                        <app-gauge [needleValue]="needleValue" [bottomLabel]="bottomLabel"></app-gauge>
+                        <div (click)="setGaugeInfo(1)" class="gauge-1"></div>
+                        <div (click)="setGaugeInfo(2)" class="gauge-2"></div>
+                        <div (click)="setGaugeInfo(3)" class="gauge-3"></div>
+                        <div (click)="setGaugeInfo(4)" class="gauge-4"></div>
+                      </div>
+                    </div>
+
+                    <br>
+                    <div [ngClass]="{'active-answer': actualSlide === q.id }" class="option-btn"
+                      (click)="nextSlide(i, q.tipo, q)">
+                      {{ 'EXERCISE.Segue' | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ion-slide>
+
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="playAudio(play_able)">
+      <ion-icon [name]="music_icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,13 @@
+ion-content{
+    --background: var(--ion-color-exercise-1);
+}
+
+*{
+   color: var(--ion-color-white);
+}
+
+ion-button{
+    --background: var(--ion-color-white);
+    color:  var(--ion-color-primary);
+    min-width: 180px;
+}

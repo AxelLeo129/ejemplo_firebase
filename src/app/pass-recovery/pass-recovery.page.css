@@ -1,0 +1,48 @@
+.wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo {
+  width: 80%;
+  margin: 40px auto 40px auto;
+  text-align: center;
+}
+
+.recovery-info {
+  text-align: center;
+  color: var(--ion-color-primary);
+  margin-bottom: 10px;
+}
+
+.recovery-form {
+  padding: 0 40px;
+  text-align: center;
+}
+
+.recovery-form .login-btn {
+  border-radius: 4px;
+  margin: 0 auto 20px auto;
+  height: 50px;
+  max-width: 250px;
+}
+
+.recovery-form .btn-passrecovery {
+  text-decoration: underline;
+}
+
+.recovery-form ion-input {
+  text-align: left;
+}
+/*# sourceMappingURL=pass-recovery.page.css.map */

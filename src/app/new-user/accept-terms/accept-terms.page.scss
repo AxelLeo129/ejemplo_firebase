@@ -1,0 +1,23 @@
+ion-grid{
+    max-width: 1000px;
+}
+
+header{
+    h3{
+        font-size: 1.8rem;
+    }
+    p{
+        color: var(--ion-color-primary);
+    }
+}
+ion-button{
+    width: 200px;
+    height: 50px;
+    margin-bottom: 14px;
+}
+
+
+.not-accept-btn{
+    text-decoration: underline;
+    margin-right: 20px;
+}

@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button (click)="cancel()" fill='clear' slot="start">        
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">  
+      </div>   
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <video controls autoplay class="fullscreen" width="420" height="345" [src]="url_video"></video>
+</ion-content>

@@ -1,0 +1,630 @@
+{
+    "BACK": "back",
+    "SIGNUP": {
+        "name_input": "Enter a name",
+        "email-input": "Enter a email",
+        "password-input": "Enter a password",
+        "signup-button": "Check In",
+        "validation_messages": {
+            "email": {
+                "required": "This field is required.",
+                "pattern": "Enter a valid email."
+            },
+            "password": {
+                "required": "This field is required.",
+                "minlength": "The password must has at least 6 characaters."
+            },
+            "name": {
+                "required": "This field is required."
+            }
+        },
+        "Tems-text": "I accept the terms and policies",
+        "Terms-alert": {
+            "Title": "Attention",
+            "Message": "To create an account you must agree to the terms and conditions.",
+            "Button": "Ok"
+        },
+        "Login": "Already you have an account? Log in."
+    },
+    "LOGIN": {
+        "email-input": "Enter a email",
+        "password-input": "Enter a password",
+        "signup-button": "Login",
+        "validation_messages": {
+            "email": {
+                "required": "This field is required.",
+                "pattern": "Enter a valid email."
+            },
+            "password": {
+                "required": "This field is required.",
+                "minlength": "The password must has at least 6 characaters."
+            }
+        },
+        "Button": "Login",
+        "Forgot": "I forgot my password",
+        "Register": "Create an Account"
+    },
+    "LOADING": {
+        "msg": "Please wait..."
+    },
+    "ERRORALERT": {
+        "msg1": "Error creating user, please try again later.",
+        "msg2": "Invalid password or email.",
+        "msg3": "Invalid Email."
+    },
+    "SUCCESSALERT": {
+        "msg": "An email was sent to you."
+    },
+    "ALERT": {
+        "header": "Warning",
+        "msg": "Enter email and password.",
+        "msg2": "Upload your DPI",
+        "msg1": "Enter the email",
+        "msgCode": "You hadn't enter a therapist code",
+        "msgSchedule": "You hadn't enter a schedule",
+        "msg3": "Are you sure you want to eliminate this goal?",
+        "msg4": "Are you sure to change your therapist?",
+        "button": "Cancel",
+        "button1": "Ok"
+    },
+    "HOME": {
+        "Hello": "Hello",
+        "Question": "How do you feel today?",
+        "Answer": "Today I feel",
+        "Link": "Record mood",
+        "Title": "What would you like to do today?",
+        "moods": {
+            "angry": "Angry",
+            "sad": "Sad",
+            "fine": "I'm Fine",
+            "surprised": "Surprised",
+            "happy": "Happy",
+            "tired": "Tired",
+            "incredible": "Incredible",
+            "hostile": "Hostile"
+        },
+        "Alert": "Do you want to save your emotion?"
+    },
+    "UTILITIESSERVICE": {
+        "Ok": "Ok",
+        "Cancel": "Cancel"
+    },
+    "GENERALSERVICE": {
+        "Ok_toast_message": "¡Action done!",
+        "Ok_feeling_toast_message": "You have recorded the way you feel",
+        "Delete_toast_message": "Item successfully removed",
+        "Update_toast_message": "Item successfully updated",
+        "Mood_subtitle": "Remember to check your records in My Progress"
+    },
+    "NOTAS": {
+        "Title": "Library"
+    },
+    "EXERCISES": {
+        "Title": "Select an exercise"
+    },
+    "EXERCISE": {
+        "Alert": "Congratulations! You took a moment to your health and well-being",
+        "Description": "Let's see a summary of what <br> that sadness came to teach you:",
+        "Button": "See summary",
+        "Of": "of",
+        "Time": "minutes",
+        "Button1": "Start",
+        "Title": "Summary",
+        "When": "When did this happen:",
+        "Congratulations": "Excellent, keep it up. <br> Do other exercises.",
+        "Next": "Another exercise",
+        "Again": "Do the exercise again",
+        "History": "View history",
+        "Segue": "Next",
+        "Back": "Previous"
+    },
+    "LANGUAGEMODAL": {
+        "Title": "Select your language"
+    },
+    "ONBOARDING1": {
+        "Href": "Forward Enter",
+        "Title1": "The time to improve your life is today",
+        "P1": "Build your happiness, manage your anxiety, improve your relationships and reach your goals with our help.",
+        "Title2": "Your emotions don't have a schedule and neither does your help",
+        "P2": "Allow yourself to have the help of a psychologist personalized to your needs and your timex.",
+        "Title3": "Eliminate stigma and grow your mind",
+        "P3": "Do exercises to better manage your emotions and unlock your full potential. Learn about the processes and mechanisms that your mind carries out.",
+        "Button": "Sign up"
+    },
+    "ONBOARDING": {
+        "Href2": "Skip",
+        "Href": "Forward Intro",
+        "Title1": "Welcome to Mimento!",
+        "P1": "Your mental health and safety is the most important thing for us. All your information is encrypted and only you and your therapist will be able to access it.",
+        "Title2": "Personalized Therapy",
+        "P2": "To find your therapist select Chat with my Therapist. Choose your best help option. Select the area / s you are interested in improving. Enter your therapist preference, as well as the time you want.",
+        "Title3": "Choose your package",
+        "P3": "After selecting your therapist. Choose your package. You have access to a free trial. Enter your payment method.",
+        "Title4": "Contact your therapist",
+        "P4": "Enter to Chat with my Therapist. Here you can communicate with your therapist via messages, record voice messages, and, in case of emergency, request an emergency call.",
+        "Title5": "Do exercises and measure your progress",
+        "P5": "Perform exercises to improve your mental hygiene and streamline your mind. In My Progress you can see your exercises and share them with your therapist.",
+        "Button": "Sign up",
+        "Butto2": "Leave"
+    },
+    "PROGRESSLIST": {
+        "Title_date": "Mimento is with you since:",
+        "Instruccions": "You can see your progress <br> per month:",
+        "Card1": "Mood history",
+        "Card2": "History of responses received from your therapist",
+        "Card3": "Summary of the last exercises carried out",
+        "Card4": "Areas of interest",
+        "Card5": "My Goals",
+        "Card6": "Measure your level of well-being",
+        "Months": {
+            "Month1": "January",
+            "Month2": "February",
+            "Month3": "March",
+            "Month4": "April",
+            "Month5": "May",
+            "Month6": "June",
+            "Month7": "July",
+            "Month8": "August",
+            "Month9": "September",
+            "Month10": "October",
+            "Month11": "November",
+            "Month12": "Dicember"
+        },
+        "Therapist1": "You can change your therapist",
+        "Therapist2": "Do the match again",
+        "Therapist3": "Share my progress",
+        "Therapist4": "with my therapist"
+    },
+    "EMOTIONTRACKER": {
+        "Title": "Status History",
+        "Title1": "My Moods this Month",
+        "Instructions": "Select the month",
+        "Subtitle": "Latest Registered States",
+        "Months": {
+            "Month1": "January",
+            "Month2": "February",
+            "Month3": "March",
+            "Month4": "April",
+            "Month5": "May",
+            "Month6": "June",
+            "Month7": "July",
+            "Month8": "August",
+            "Month9": "September",
+            "Month10": "October",
+            "Month11": "November",
+            "Month12": "Dicember"
+        },
+        "Moods": {
+            "Mood1": "Hostile",
+            "Mood2": "Tired",
+            "Mood3": "Surprised",
+            "Mood4": "Sad",
+            "Mood5": "Angry",
+            "Mood6": "Happy"
+        },
+        "Cards_list": {
+            "Text1": "There are no records",
+            "Text2": "for this date."
+        }
+    },
+    "GOALS": {
+        "Title": "My Goals",
+        "Placeholder": "Write your goal",
+        "Placeholder1": "Select the compliance date",
+        "Button": "Create target",
+        "Exists": "You have not registered goals yet.",
+        "A": "Mark as completed",
+        "Small": "Complete",
+        "Segment": "To comply",
+        "Segment1": "Completed",
+        "Load": "There are no records for this month."
+    },
+    "MODALGOALS": {
+        "Title": "Add a goal",
+        "Button": "Save",
+        "Update": "Are you sure you change the status?",
+        "Delete": "Are you sure to delete this item?",
+        "Cancel": "Cancel",
+        "Ok": "Ok"
+    },
+    "RECOVERYACCOUNT": {
+        "Success": "An email has been sent to you with the necessary information.",
+        "Error": "The email is invalid"
+    },
+    "PROFILE": {
+        "Title": "My Information",
+        "Name": "Name:",
+        "Birth": "With Mimento from:",
+        "Email": "Mail:",
+        "Title1": "My Membership",
+        "Title2": "My Therapist",
+        "Title3": "My Payment Methods",
+        "Title4": "Links",
+        "Title5": "Policies",
+        "Title6": "Immediate session phone",
+        "Title7": "Request Session",
+        "Title8": "Request Immediate Session",
+        "Title9": "File ethical complaint",
+        "Text9": "Send a message to our ethics committee",
+        "Phone_placeholder": "Enter your phone number",
+        "Name_placeholder": "Enter the name of the change it to contact",
+        "Relation_placeholder": "Enter the relationship with the contact",
+        "Special": "Specialized in:",
+        "Button": "View Profile",
+        "Button1": "Change",
+        "Card": "Sessions per Week:",
+        "Card1": "Therapy Time",
+        "Card2": "Minutes per day:",
+        "Card3": "Validity: active",
+        "Card4": "Areas of interest",
+        "Pay": "Card No .:",
+        "Pay1": "Due:",
+        "Pay2": "Type:",
+        "PayButton": "Change",
+        "SucessMessage": "You have successfully changed your payment method.",
+        "DeniedMessage": "Error updating the payment method.",
+        "Help": "Help",
+        "Share": "Share",
+        "About": "About the App",
+        "Rate": "Rate the App",
+        "Privacy": "Privacy Policies",
+        "Terms": "Terms of use",
+        "Expires": "Expires in:",
+        "Days": "business days",
+        "Title_alert": "Attention",
+        "Description": "Are you sure to cancel your subscription?",
+        "Button2": "Accept",
+        "Button3": "Cancel",
+        "Message": "Operation completed successfully.",
+        "Error": "The action could not be performed, please try again later.",
+        "Share_description": "I invite you to use mimento, the application that helps you with your mental health",
+        "Title10": "Do you need help or information?",
+        "Message1": "Send an email to:",
+        "ButtonCAI": "Change areas of interest",
+        "ButtonQE": "File complaint"
+    },
+    "NEEDHELP": {
+        "THERAPIST": "I already have a therapist",
+        "Title": "Your moment <br> is now",
+        "Description": "How can we help?",
+        "Button": "I need help",
+        "Button1": "I want to learn"
+    },
+    "HELPAREAS": {
+        "Introduction": "In which area of your life <br> do you need help?",
+        "Instructions": "You can select up to two areas",
+        "Option1": "Personal",
+        "Option2": "Social",
+        "Option3": "Stages <br> of life",
+        "Option4": "Academic <br> and labor",
+        "Button": "Next"
+    },
+    "SELECTEDAREAS": {
+        "Instructions": "You can select up to two <br> options per area.",
+        "Option1": "Personal",
+        "Option2": "Social",
+        "Option3": "Stages of life",
+        "Option4": "Academic and labor",
+        "Titlemodal": "Selected areas and options.",
+        "Button": "Next"
+    },
+    "WELLBEINGLEVEL": {
+        "Title": "Measure your level of well-being",
+        "Segment1": "Questionnaires",
+        "Segment2": "Results",
+        "Button": "Start",
+        "No": "Questions",
+        "Titulo": "Questionnarie",
+        "Button1": "Send Responses",
+        "Empty": "There are no records",
+        "o1": "Answer option one",
+        "o2": "Answer option two",
+        "o3": "Answer option three",
+        "o4": "Answer option four"
+    },
+    "Match": {
+        "Intructions": "We ask for a little more <br> information to find you <br> the best therapist",
+        "Fist": "I want my therapist to be:",
+        "Fist1": "Male",
+        "Fist2": "Female",
+        "Fist3": "I have no preference",
+        "Fist4": "Other",
+        "Second": "Therapist age preference:",
+        "Second1": "Under 35 years",
+        "Second2": "Over 35 years",
+        "Second3": "I have no preference",
+        "Third": "Tell your therapist a little about yourself",
+        "Third0": "Your gender is:",
+        "Third1": "Male",
+        "Third2": "Female",
+        "Third3": "I prefer not to say",
+        "Fourth": "The year of your birth is:",
+        "Fourth1": "Select a date",
+        "Fifth": "Therapy schedule:",
+        "Fifth1": "From 6am  - 10am",
+        "Fifth2": "From 10am - 2pm",
+        "Fifth3": "From 2pm  - 6pm",
+        "Fifth4": "From 6pm  - 10pm",
+        "Fifth5": "From",
+        "Fifth6": "to",
+        "Sixth": "Therapy is for my son:",
+        "Sixth1": "Yes",
+        "Sixth2": "No",
+        "Button": "Find my therapist",
+        "Start": "Start hour",
+        "End": "End hour",
+        "Alert_title": "Atention!",
+        "Alert_message": "No therapist found for these hours.",
+        "Alert_button": "Ok",
+        "Alert_message1": "Enter the minor's name",
+        "Alert_cancel": "Cancel",
+        "ActionSheet_text": "Image",
+        "Alert_input": "Enter name",
+        "Alert_error": "All fields are required"
+    },
+    "MATCHRESULTS": {
+        "NoTherapist": "We have not found a therapist for the given configuration, please try to change hours.",
+        "Description": "These are the therapists that match your interests, select one.",
+        "Button": "Select",
+        "Specialty": "Specialized in:",
+        "Exp": "Experience",
+        "Time": "years",
+        "Days": "Attention days",
+        "Sunday": "Sun",
+        "Monday": "Mon",
+        "Tuesday": "Tue",
+        "Wednesday": "Wed",
+        "Thursday": "Thu",
+        "Friday": "Fri",
+        "Saturday": "Sat"
+    },
+    "SELECTSUBSCRIPTION": {
+        "Alert": "You have a free trial <br> for 5 days.",
+        "Instructions": "Choose the plan that best <br> suits your needs",
+        "Small": "All prices include IVA",
+        "Button": "Activate",
+        "Button1": "Acquire",
+        "Days": "Days:",
+        "Answers": "Answers:",
+        "Validity": "Validity of the package:",
+        "Minutes": "Minutes per day:",
+        "Live": "Online session (at a set time with your therapist):",
+        "Live_after": " minutes per week",
+        "WeekDays": "Days of the week:",
+        "Live_message_1": "Online session (at a set time with your therapist):",
+        "Live_message_2": "minutes per week"
+    },
+    "SUBSCRIPTIONSUMMARY": {
+        "Title": "Summary",
+        "Description": "Selected Membership",
+        "Button": "Pay"
+    },
+    "EXERCISESSUMMARY": {
+        "Instructions": "Summary of the last <br> exercises carried out.",
+        "Title": "You have not exercised yet",
+        "A": "See Summary",
+        "A1": "Go to exercises"
+    },
+    "EXERCISEDETAILS": {
+        "Title": "Summary",
+        "Question": "Question asked",
+        "When": "When did this happen?"
+    },
+    "ADDPAYMENT": {
+        "Instructions": "Please add your payment method",
+        "Instructions1": "Please fill in the following fields.",
+        "Placeholder": "Card number",
+        "Placeholder1": "Owner name",
+        "Placeholder2": "Expiration date",
+        "Placeholder3": "Enter your name",
+        "Placeholder4": "Enter your last name",
+        "Placeholder5": "Enter your address",
+        "Placeholder8": "Enter your department",
+        "Placeholder9": "Enter your municipality",
+        "Placeholder10": "Enter your zip code",
+        "PlaceholderCVV": "Security code",
+        "PlaceholderPais": "Select your country",
+        "Placeholder11": "Billing name",
+        "Placeholder12": "NIT for billing",
+        "Placeholder13": "Billing address",
+        "Button": "Next",
+        "Button1": "Add",
+        "Button2": "Previous",
+        "Error": "This field is required.",
+        "Error1": "This field must have 16 numbers.",
+        "Alert_title": "Attention!",
+        "Alert_msg": "Add a valid card",
+        "OK": "yes",
+        "Cancel": "No",
+        "Alert_msg1": "Do you want to re-enter the card?"
+    },
+    "ALERTCARD": {
+        "header": "Warning",
+        "subHeader": "Therapist who will support you",
+        "msg": "Enter a valid card.",
+        "msg1": "Verify that you have not left any fields empty.",
+        "msg2": "Are you sure to ask for an emergency session?",
+        "msg3": "Press the 'Call' button to be attended to.",
+        "error": "You cannot be assigned during this time, try another.",
+        "error1": "We have not found results.",
+        "error2": "Select a day between Monday and Friday",
+        "error3": "The therapist does not attend at that time",
+        "error4": "Sorry, this schedule is no longer available",
+        "Button": "Cancel",
+        "Button1": "Ok",
+        "Button2": "Call"
+    },
+    "DPIPOPOVER": {
+        "Description": "For your son or daughter to use of Mimento and you can receive a weekly progress report You must upload a photo of your DPI."
+    },
+    "BIOMODAL": {
+        "Title": "We want Mimento <br> to be a safe place",
+        "Description": "You can activate this function",
+        "Button": "Accept",
+        "Button1": "Refuse",
+        "Title1": "Please authenticate yourself."
+    },
+    "PAYMENTNOTIFICATION": {
+        "Title": "Operation performed <br> correctly",
+        "Title2": "You successfully changed your therapist",
+        "Title2_part1": "Your therapist is available during the week in the selected period",
+        "Title2_part2": ", see you soon.",
+        "Button": "OK",
+        "Message": "In seconds we will connect you <br> with your therapist.",
+        "Title1": "An error occurred while processing <br> your request",
+        "Message1": "Please perform the operation again."
+    },
+    "LIVECHATMODAL": {
+        "Title2": "My therapist",
+        "Descripcion": "Specialized in:",
+        "Button1": "Save changes",
+        "Descripcion1": "Your live session is scheduled to",
+        "Descrpcion2": "you can change the day and time",
+        "Title1": "Your membership has live sessions",
+        "Title": "Please, tell us the date you want to have your session live",
+        "Select": "Select the day",
+        "Select0": "Session day",
+        "Select1": "Select the start time",
+        "Select2": "Ending time",
+        "Sunday": "Sunday",
+        "Monday": "Monday",
+        "Tuesday": "Tueday",
+        "Wednesday": "Wednesday",
+        "Thursday": "Thursday",
+        "Friday": "Friday",
+        "Saturday": "Saturday",
+        "Button": "Continue"
+    },
+    "TUTOCHAT": {
+        "step1": "Welcome, we want to introduce you to the basic functions of this Chat",
+        "step2": "This button allows you to send messages",
+        "step3": "If you are in an emergency press this button, we will link with a therapist",
+        "step4": "Get more information from your therapist and from this chat",
+        "step5": "The Chat will be in clear mode when you are in the selected therapy schedule",
+        "step6": "Chat will be in dark mode when you are out of hours or your session has ended",
+        "skip": "Skip",
+        "done": "Done",
+        "prev": "Previous",
+        "next": "Next"
+    },
+    "CHAT": {
+        "Toast_msg": "Attention, your live session has started.",
+        "Toast_msg1": "Your live session is about to end.",
+        "Message_type_TN": "You have received a note from your therapist ",
+        "Message_type_TV": "You have received a video from your therapist ",
+        "Message_type_TE": "You have received an exercise from your therapist ",
+        "Reproducing": "Reproducing",
+        "RepAg": "Replay",
+        "SendVoiceNote": "Send the voice note?",
+        "NoAudioRecord_title": "You cannot send voice messages",
+        "NoAudioRecord_label": "We are sorry, but your device is not currently accepted for sending voice messages"
+    },
+    "THERAPISTALREADYMODAL": {
+        "Title": "Search my Therapist",
+        "Placeholder": "Write the code",
+        "Button": "Search",
+        "Error": "No therapist found with this code or this schedule"
+    },
+    "MYPROGRESSINTRO": {
+        "Intro": "We welcome you to the 'My Progress' section. Here you can:",
+        "Time": "You can sort the results by month.",
+        "Share": "Share your information with your therapist.",
+        "Change": "If you want you can change the therapist.",
+        "Mood": "View your mood history.",
+        "Exercises": "See the history of your exercises.",
+        "Goals": "Manage your goals made or to be done, in addition to being able to add new ones.",
+        "Quest": "Measure your level of well-being with different questionnaires."
+    },
+    "PASSRECOVERY": {
+        "Description": "We will send you an email <br> to reset your <br> password",
+        "Placeholder": "Enter your email",
+        "Button": "Recover"
+    },
+    "ABOUTAPP": {
+        "Title": "About the app",
+        "Description": "We are a subscription service that allows virtual access to a <strong> licensed therapist, exercises and information to improve mental health <br><br> Our mission is to eliminate stigma and democratize access to mental health in Latin America </strong> by providing access and tools for individuals to make this moment their best moment",
+        "Link": "More information..."
+    },
+    "QUEJAS": {
+        "Title": "Do you have an ethical complaint?",
+        "Message": "Please enter a message so that we can attend to you as soon as possible.",
+        "Input": "Write a message",
+        "ErrorTitle": "You have not entered a message",
+        "ErrorMessage": "Please try again later",
+        "DoneTitle": "Message sent",
+        "DoneMessage": "Thank you, our committee will review it as soon as possible."
+    },
+    "RATE": {
+        "Header": "Rate your experience with mimento",
+        "Instructions": "Please fill in all fields",
+        "Placeholder": "How would you rate your therapist?",
+        "Placeholder1": "What can your therapist improve on?",
+        "Placeholder2": "What do you like most about your therapist?",
+        "Placeholder3": "Write a comment about your therapist",
+        "Placeholder4": "How would you rate Mimento?",
+        "Placeholder5": "Select an option",
+        "PlaceholderMA": "Write a comment about mimento",
+        "Placeholder8": "Enter your department",
+        "Placeholder9": "Enter your municipality",
+        "Placeholder10": "Enter your zip code",
+        "HeaderReApp": "From 0 to 10, how likely are you to recommend lying to a friend or family member?",
+        "HeaderReTe": "From 0 to 10, how likely is it that you would recommend your therapist to a friend or family member?",
+        "Button": "Next",
+        "Button1": "Add",
+        "Button2": "Back",
+        "Error": "This field is required.",
+        "Error1": "This field must have 16 numbers.",
+        "Item1": "Your help",
+        "Item2": "Your attention",
+        "Item3": "Your professionalism",
+        "Item4": "Other"
+    },
+    "POPOVERCHANGESUBSCRIPTION": {
+        "Text": "To change plan you must go through the process of choosing a therapist."
+    },
+    "ALERTS": {
+        "Error_title": "An error has occurred",
+        "Error_peticion": "The request could not be made.",
+        "Thanks_title": "Thanks!",
+        "Thanks_label": "Your grades help us improve.",
+        "Form_not_complete_title": "Incomplete form",
+        "Form_not_complete_label": "Please review the form"
+    },
+    "ErrorAuth": {
+        "claims-too-large": "The claim is too large to be saved.",
+        "invalid-argument": "An invalid argument was provided for the authentication method.",
+        "invalid-display-name": "The username is not allowed.",
+        "invalid-email-verified": "The value provided for the emailVerified user property is not valid.",
+        "invalid-email": "The email entered is incorrect.",
+        "invalid-password": "The supplied password is incorrect.",
+        "invalid-photo-url": "The photo provided is incorrect.",
+        "missing-uid": "The UID has not been provided.",
+        "invalid-uid": "The supplied UID is incorrect.",
+        "uid-Alread-Exists": "A user already exists with that Nit.",
+        "email-already-exists": "The email already exists.",
+        "user-not-found": "The user was not found.",
+        "internal-error": "An error with the server has been found.",
+        "wrong-password": "The password is invalid or the user does not have a password.",
+        "uid-already-exists": "Mail has already been used in another account, please use another one."
+    },
+    "Gauge": {
+        "much": "many times",
+        "never": "never",
+        "some": "sometimes",
+        "always": "always"
+    },
+    "VerticalSlider": {
+        "to_much": "very likely",
+        "much": "never",
+        "some": "something probable",
+        "not_to_much": "unlikely",
+        "not": "very unlikely"
+    },
+    "GuardianModal": {
+        "TitleEmail": "What is the email of the legal guardian?",
+        "PlaceholderEmail": "Email of the legal guardian",
+        "ActionSheetTitle": "Fill in the following fields",
+        "NameGuardian": "Enter the name of the manager",
+        "DPIGuardian": "Enter the manager's DPI"
+    }
+}

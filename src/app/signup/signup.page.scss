@@ -1,0 +1,36 @@
+.wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    width: 80%;
+    margin: 40px auto 40px auto;
+    text-align: center;
+}
+
+.signup-form {
+    padding: 0 40px;
+
+    .singup-btn {
+        border-radius: 4px;
+        margin: 0 auto 20px auto;
+        height: 50px;
+        max-width: 250px;
+    }
+}
+
+.accept-terms {
+    width: 250px;
+    margin: 0 auto 20px auto;
+    ion-checkbox {
+        margin-right: 10px;
+    }
+}
+ion-input {
+    --padding-start: 10px;
+}

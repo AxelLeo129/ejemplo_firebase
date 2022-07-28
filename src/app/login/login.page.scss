@@ -1,0 +1,33 @@
+.wrapper{
+    max-width: 400px;
+    margin: 0 auto;    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.logo{    
+    width: 80%;
+    margin: 40px auto 40px auto;
+    text-align: center;
+}
+
+.login-form{    
+    padding: 0 40px;
+    text-align: center;
+
+    .login-btn{
+        border-radius: 4px;
+        margin: 0 auto 20px auto;
+        height: 50px;
+        max-width: 250px;
+    }
+    .btn-passrecovery{
+        text-decoration: underline;
+    }
+    ion-input{
+        text-align: left;
+        --padding-start: 10px !important;
+    }
+}

@@ -1,0 +1,44 @@
+ion-content{
+    ion-grid{
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+   
+}
+
+ion-list{
+    background: none;
+    ion-item{
+        --background: none;
+        ion-radio{
+            margin-right: 8px;
+        }
+        ion-label{
+            color: var(--ion-color-primary);
+            font-size: .9rem;
+        }
+    }
+}
+
+.therapist-specs, .about-me{
+    margin:0 10px 20px 10px;
+    h3{
+        margin: 20px 0 0 0;
+        font-size: 1.2rem;
+    }
+}
+
+
+.mimento-btn{
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+ion-datetime, ion-select{
+    color: var(--ion-color-primary);
+}
+
+.noshow {
+    display: none;
+}

@@ -1,0 +1,17 @@
+<ion-content>
+  
+  <div class="payment-success" *ngIf="response == 'success'">
+    <ion-icon name="checkmark-circle-outline" color="success"></ion-icon>
+    <h3 innerHTML="{{ 'PAYMENTNOTIFICATION.Title' | translate }}"></h3>
+    <p innerHTML="{{ 'PAYMENTNOTIFICATION.Message' | translate }}"></p>
+  </div>
+  
+  <div class="payment-error" *ngIf="response == 'denied'">
+    <ion-icon name="close-circle-outline" color="danger"></ion-icon>
+    <h3 innerHTML="{{ 'PAYMENTNOTIFICATION.Title1' | translate }}"></h3>
+    <p>{{ 'PAYMENTNOTIFICATION.Message1' | translate }}</p>
+  </div>
+  
+  
+  </ion-content>
+  

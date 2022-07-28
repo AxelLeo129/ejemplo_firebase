@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <header>
+          <h3>{{ 'SUBSCRIPTIONSUMMARY.Title' | translate }}</h3>
+          <p>{{ 'SUBSCRIPTIONSUMMARY.Description' | translate }}</p>
+        </header>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="subscription-card">
+          <div class="subscription-name">
+            <h3>{{ subscription?.nombre[index] }}</h3>
+          </div>
+          <div class="price">
+            <h3><span>Q</span>{{ subscription?.precio }}</h3>
+          </div>
+          <div class="divider"></div>
+          <div class="features">
+            <!-- <ion-label>Ejercicios:</ion-label> -->
+            <!-- <p>Ilimitados</p> -->
+            <ion-label>Chat:</ion-label>
+            <p>{{ 'SELECTSUBSCRIPTION.Days' | translate }} {{ subscription?.dias_disponibles }}</p>
+            <!-- <ion-label>Respuestas:</ion-label> -->
+            <p>{{ 'SELECTSUBSCRIPTION.Minutes' | translate }} {{ subscription?.minutos_dia }}
+              <br>{{ 'SELECTSUBSCRIPTION.WeekDays' | translate }} {{ subscription?.dias_disponibles }}</p>
+            <ion-label>{{ 'SELECTSUBSCRIPTION.Validity' | translate }}</ion-label>
+            <p>{{ 'SELECTSUBSCRIPTION.Days' | translate }} {{ subscription?.dias_vigencia }}</p>
+            <ion-label *ngIf="subscription?.permite_live_session">
+              {{ 'SELECTSUBSCRIPTION.Live' | translate }} {{ subscription?.live_minutes }}
+              {{ 'SELECTSUBSCRIPTION.Live_after' | translate }}
+            </ion-label>
+            <!-- 
+            <ion-label *ngIf="subscription?.permite_live_session">
+              {{ 'SELECTSUBSCRIPTION.Live_message_1' | translate }} {{ subscription?.live_minutes }}
+              {{ 'SELECTSUBSCRIPTION.Live_message_2' | translate }}</ion-label> -->
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <ion-button color="success" expand="block" class="pay-btn" (click)="pay()">
+            {{ 'SUBSCRIPTIONSUMMARY.Button' | translate }}</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

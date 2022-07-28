@@ -1,0 +1,183 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <header>
+          <h3 innerHTML="{{ 'RATE.Header' | translate }}"></h3>
+          <p>
+            {{ 'RATE.Instructions' | translate }}
+          </p>
+        </header>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="add-payment-form">
+          <form [formGroup]="calificacion_form" (ngSubmit)="setRate()">
+            <ion-label>{{ 'RATE.Placeholder' | translate }}</ion-label>
+            <div class="stars">
+              <ion-icon (click)="cambiarValidacionTerapeuta(1)" [name]="'star'">
+              </ion-icon>
+              <ion-icon (click)="cambiarValidacionTerapeuta(2)" [name]="c_t_n > 1  ? 'star' : 'star-outline'">
+              </ion-icon>
+              <ion-icon (click)="cambiarValidacionTerapeuta(3)" [name]="c_t_n > 2 ? 'star' : 'star-outline'"></ion-icon>
+              <ion-icon (click)="cambiarValidacionTerapeuta(4)" [name]="c_t_n > 3 ? 'star' : 'star-outline'"></ion-icon>
+              <ion-icon (click)="cambiarValidacionTerapeuta(5)" [name]="c_t_n > 4 ? 'star' : 'star-outline'">
+              </ion-icon>
+              <!-- 
+              <ion-range min="1" max="5" step="1" value="3" snaps="true" pin="true"
+                formControlName="calificacion_terapeuta" (ionChange)="cambiarValidacionTerapeuta()">
+                <ion-icon slot="start" size="small" name="star-outline"></ion-icon>
+                <ion-icon slot="end" name="star-outline"></ion-icon>
+              </ion-range>
+               -->
+            </div>
+            <ion-label class="star-label">
+              {{getTextValue(c_t_n)}}
+            </ion-label>
+            <br>
+            <div class="errors"
+              *ngIf="calificacion_terapeuta.invalid && (calificacion_terapeuta.dirty || calificacion_terapeuta.touched)">
+              <span *ngIf="calificacion_terapeuta.errors.required">
+                <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+              </span>
+            </div>
+            <br>
+            <ng-template [ngIf]="validacion_terapueta" [ngIfElse]="validacion_terapuetaNotDiv">
+              <ion-label>{{ 'RATE.Placeholder1' | translate }}</ion-label>
+              <ion-textarea type="text" formControlName="comentario_terapeuta" name="comentario_terapeuta" clearInput
+                placeholder="{{ 'RATE.Placeholder3' | translate }}">
+              </ion-textarea>
+            </ng-template>
+            <ng-template #validacion_terapuetaNotDiv>
+              <ion-label>{{ 'RATE.Placeholder2' | translate }}</ion-label>
+              <ion-item lines="none" class="ion-text-wrap input-select">
+                <ion-select *ngIf="!validacion_terapueta" (ionChange)="activarOtroComentario()"
+                  formControlName="comentario_terapeuta_select" name="comentario_terapeuta_select"
+                  placeholder="{{ 'RATE.Placeholder5' | translate }}">
+                  <ion-select-option value="Su ayuda">
+                    {{ 'RATE.Item1' | translate }}</ion-select-option>
+                  <ion-select-option value="Su atención">
+                    {{ 'RATE.Item2' | translate }}</ion-select-option>
+                  <ion-select-option value="Su profesionalismo">
+                    {{ 'RATE.Item3' | translate }}</ion-select-option>
+                  <ion-select-option value="4">
+                    {{ 'RATE.Item4' | translate }}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ng-template>
+            <div class="errors"
+              *ngIf="comentario_terapeuta.invalid && (comentario_terapeuta.dirty || comentario_terapeuta.touched)">
+              <span *ngIf="comentario_terapeuta.errors.required">
+                <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+              </span>
+            </div>
+
+            <ion-label>{{ 'RATE.Placeholder4' | translate }}</ion-label>
+            <div class="stars">
+              <ion-icon (click)="c_a_n=1" [name]="'star'">
+              </ion-icon>
+              <ion-icon (click)="c_a_n=2" [name]="c_a_n > 1  ? 'star' : 'star-outline'">
+              </ion-icon>
+              <ion-icon (click)="c_a_n=3" [name]="c_a_n > 2 ? 'star' : 'star-outline'"></ion-icon>
+              <ion-icon (click)="c_a_n=4" [name]="c_a_n > 3 ? 'star' : 'star-outline'"></ion-icon>
+              <ion-icon (click)="c_a_n=5" [name]="c_a_n > 4 ? 'star' : 'star-outline'">
+              </ion-icon>
+              <!-- 
+              <ion-range min="1" max="5" step="1" value="3" snaps="true" pin="true"
+                formControlName="calificacion_app">
+                <ion-icon slot="start" size="small" name="star-outline"></ion-icon>
+                <ion-icon slot="end" name="star-outline"></ion-icon>
+              </ion-range>
+               -->
+            </div>
+            <ion-label class="star-label">
+              {{getTextValue(c_a_n)}}
+            </ion-label>
+            <div class="errors"
+              *ngIf="calificacion_app.invalid && (calificacion_app.dirty || calificacion_app.touched)">
+              <span *ngIf="calificacion_app.errors.required">
+                <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+              </span>
+            </div>
+            <br>
+            <ion-textarea type="text" formControlName="comentario_app" name="comentario_app" clearInput
+              placeholder="{{ 'RATE.PlaceholderMA' | translate }}">
+            </ion-textarea>
+            <div class="errors" *ngIf="comentario_app.invalid && (comentario_app.dirty || comentario_app.touched)">
+              <span *ngIf="comentario_app.errors.required">
+                <small>{{ 'ADDPAYMENT.Error' | translate }}</small>
+              </span>
+            </div>
+            <br>
+            <ion-label>{{ 'RATE.HeaderReApp' | translate }}</ion-label>
+            <div>
+              <ion-range min="0" max="10" step="1" value="5" snaps="true" pin="true"
+                formControlName="calificacion_recomendacion_app">
+                <div class="calificacion" slot="start">
+                  <h5>0</h5>
+                  <small>
+                    nunca lo<br>
+                    recomendaría
+                  </small>
+                </div>
+                <div class="calificacion" slot="end">
+                  <h5>10</h5>
+                  <small>
+                    definitivamente lo<br>
+                    recomendaría
+                  </small>
+                </div>
+              </ion-range>
+            </div>
+            <br>
+            <ion-label>{{ 'RATE.HeaderReTe' | translate }}</ion-label>
+            <div>
+              <ion-range min="0" max="10" step="1" value="5" snaps="true" pin="true"
+                formControlName="calificacion_recomendacion_terapeuta">
+                <div class="calificacion" slot="start">
+                  <h5>0</h5>
+                  <small>
+                    nunca lo<br>
+                    recomendaría
+                  </small>
+                </div>
+                <div class="calificacion" slot="end">
+                  <h5>10</h5>
+                  <small>
+                    definitivamente lo<br>
+                    recomendaría
+                  </small>
+                </div>
+              </ion-range>
+            </div>
+            <br>
+            <div class="ion-text-center">
+              <ion-button class="mimento-btn" type="submit">
+                {{ 'ADDPAYMENT.Button' | translate }}
+              </ion-button>
+            </div>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

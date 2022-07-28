@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ 'THERAPISTALREADYMODAL.Title' | translate }}</h3>
+        </header>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="create-goal">
+          <form (ngSubmit)="search()">
+            <ion-input [(ngModel)]="code" name="name" type="text"
+              placeholder="{{ 'THERAPISTALREADYMODAL.Placeholder' | translate }}"></ion-input>
+
+            <ion-select [(ngModel)]="schedule" name="schedule" placeholder="{{ 'Match.Fifth' | translate }}">
+              <ion-select-option *ngFor="let item of schedules; index as i" value="{{ i }}">
+                {{ 'Match.Fifth5' | translate }} {{ item.minimo }} {{ item.min_sufix }}
+                {{ 'Match.Fifth6' | translate }}
+                {{ item.maximo }} {{ item.max_sufix }}</ion-select-option>
+            </ion-select> 
+            <br>
+            <ion-button type="submit" fill="outline" color="primary" class="mimento-btn">
+              {{ 'THERAPISTALREADYMODAL.Button' | translate }}
+            </ion-button>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

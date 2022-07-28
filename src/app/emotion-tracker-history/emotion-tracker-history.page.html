@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <header>
+            <h3>{{ 'EMOTIONTRACKER.Title' | translate }}</h3>
+            <p>{{ 'EMOTIONTRACKER.Instructions' | translate }}</p>
+            <ion-datetime displayFormat="MMMM" (ionChange)="getNewMoods()" [(ngModel)]="date_string"
+              class="select-month" placeholder="{{placeholder}}"></ion-datetime>
+          </header>
+        </div>
+        <div [hidden]="!load">
+          <ion-card class="tamanio">
+            <ion-card-content>
+              <canvas height="300px" #barChart></canvas>
+            </ion-card-content>
+          </ion-card>
+        </div>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <h3>{{ 'EMOTIONTRACKER.Subtitle' | translate }}</h3>
+        </div>
+        <div *ngIf="!load; else loaded">
+          <ion-card class="card-emotion">
+            <ion-card-content>
+              <div class="emotion-icon">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </div>
+              <div class="emotion-date">
+                <p>{{ 'EMOTIONTRACKER.Cards_list.Text1' | translate }}</p>
+                <small>{{ 'EMOTIONTRACKER.Cards_list.Text2' | translate }}</small>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <ng-template #loaded>
+          <ion-card class="card-emotion" *ngFor="let item of items1">
+            <ion-card-content>
+              <div class="emotion-icon">
+                <img class="menu-item" [src]="'./assets/emociones/'+item.estado+'.svg'" width="60px">
+              </div>
+              <div class="emotion-date">
+                <p>{{item.mood}}</p>
+                <small>{{item.fecha_creacion | date: "dd/MM/yyyy"}}</small>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,64 @@
+.post-toolbar {
+    //--background: var(--ion-color-exercise-1);
+    * {
+        color: var(--ion-color-white);
+    }
+}
+ion-grid {
+    max-width: 1000px;
+}
+header {
+    //background-color: var(--ion-color-exercise-1);
+    background-image: url(/assets/imgs/mimento-card-bg.svg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    padding: 0 20px;
+    margin-bottom: -3px;
+    * {
+        color: var(--ion-color-white);
+    }
+    h3 {
+        font-size: 1.4rem;
+        margin-top: 0px;
+    }
+    p {
+        font-weight: 300;
+        max-width: 500px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+}
+
+article {
+    padding: 0 20px;
+    p,
+    ul,
+    ul li,
+    ol,
+    ol li {
+        color: var(--ion-color-text);
+        font-weight: 300;
+        line-height: 1.5rem;
+    }
+
+    b,
+    p b {
+        font-weight: 500;
+    }
+    b p {
+        font-weight: 300 !important;
+    }
+}
+
+.header-translucent-ios ion-toolbar {
+    --opacity: 0;
+}
+
+ion-title {
+    font-weight: 300;
+}
+
+.toolbar-title {
+    text-overflow: unset;
+    white-space: unset;
+}

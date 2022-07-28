@@ -1,0 +1,73 @@
+ion-content {
+    ion-grid {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .description {
+        color: var(--ion-color-primary);
+        font-family: "karla";
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    ion-segment {
+        margin: 0 0 15px 0;
+        ion-label {
+            text-transform: initial;
+            font-size: 1.1rem;
+        }
+    }
+
+    .area-item {
+        background: var(--ion-color-body);
+        border: solid 1px var(--ion-color-primary);
+        border-radius: 4px;
+        min-height: 80px;
+        padding: 20px 14px;
+        margin: 4px 15px;
+        transition: all 0.3s ease-in-out;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            color: var(--ion-color-primary);
+            font-family: "karla";
+            margin: 0px;
+            font-size: 1.1rem;
+        }
+        h4 {
+            width: calc(95% - 5px);
+            margin-right: 14px;
+        }
+    }
+
+    .area-item-selected {
+        background: var(--ion-color-primary);
+        color: var(--ion-color-light);
+        text-align: left;
+        position: relative;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            color: var(--ion-color-light);
+            font-family: "karla";
+            margin: 0px;
+        }
+    }
+}
+
+.mimento-btn {
+    margin-top: 20px;
+}

@@ -1,0 +1,77 @@
+ion-slides {
+  --bullet-background: var(--ion-color-medium-tint);
+  --bullet-background-active: var(--ion-color-primary);
+}
+
+.slide-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+.logo img {
+  height: 24px;
+}
+
+.btn-skip-intro {
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.onboarding-img {
+  margin-top: 20%;
+}
+
+.onboarding-text h3 {
+  color: var(--ion-color-primary);
+  font-size: 1.2rem;
+}
+
+.onboarding-text p {
+  color: var(--ion-color-primary);
+  font-size: .9rem;
+  padding: 0 30px 30px 30px;
+}
+
+.slide-3 .btn-skip-intro {
+  display: none;
+}
+
+.slide-3 .onboarding-img {
+  margin-top: 5%;
+}
+
+.slide-3 .onboarding-text p {
+  padding: 0 30px 20px 30px;
+}
+
+.slide-3 ion-button {
+  margin: 0 30px;
+}
+
+.slide-3 .btn-goto-signup {
+  border: 1px;
+  width: 200px;
+  height: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  ion-slide ion-grid {
+    height: 100vh;
+  }
+  ion-slide ion-grid ion-row {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+/*# sourceMappingURL=onboarding.page.css.map */

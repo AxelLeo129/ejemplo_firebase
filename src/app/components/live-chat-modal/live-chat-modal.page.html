@@ -1,0 +1,39 @@
+<ion-content>
+
+<ion-grid class="ion-text-center">
+  <ion-row>
+    <ion-col>
+      <header>
+        <h3>{{ 'LIVECHATMODAL.Title1' | translate }}</h3>
+        <h4>{{ 'LIVECHATMODAL.Title' | translate }}</h4>
+      </header>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <div class="create-goal">
+        <form (ngSubmit)="setLiveChat()" [formGroup]="liveChatForm">
+            <ion-label>{{ 'LIVECHATMODAL.Select0' | translate }}</ion-label>
+            <ion-select formControlName="day" name="day" placeholder="{{ 'LIVECHATMODAL.Select' | translate }}">
+              <!-- <ion-select-option value="0">{{ 'LIVECHATMODAL.Sunday' | translate }}</ion-select-option> -->
+              <ion-select-option value="1">{{ 'LIVECHATMODAL.Monday' | translate }}</ion-select-option>
+              <ion-select-option value="2">{{ 'LIVECHATMODAL.Tuesday' | translate }}</ion-select-option>
+              <ion-select-option value="3">{{ 'LIVECHATMODAL.Wednesday' | translate }}</ion-select-option>
+              <ion-select-option value="4">{{ 'LIVECHATMODAL.Thursday' | translate }}</ion-select-option>
+              <ion-select-option value="5">{{ 'LIVECHATMODAL.Friday' | translate }}</ion-select-option>
+              <!-- <ion-select-option value="6">{{ 'LIVECHATMODAL.Saturday' | translate }}</ion-select-option> -->
+            </ion-select>
+            <ion-label>{{ 'LIVECHATMODAL.Select1' | translate }}</ion-label>
+            <ion-datetime formControlName="hour" name="hour" display-format="HH:mm" picker-format="HH:mm" [value]="today_date" (ionChange)="setEnd()" doneText="Ok"></ion-datetime>
+            <ion-label>{{ 'LIVECHATMODAL.Select2' | translate }}</ion-label>
+            <p>{{ end_live }}</p>
+          <ion-button [disabled]="!liveChatForm.valid" type="submit" fill="outline" color="primary" class="mimento-btn">
+            {{ 'LIVECHATMODAL.Button' | translate }}
+          </ion-button>
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>

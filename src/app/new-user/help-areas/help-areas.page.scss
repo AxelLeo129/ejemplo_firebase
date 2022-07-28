@@ -1,0 +1,39 @@
+ion-content{
+    p{
+        color: var(--ion-color-primary);
+    }
+    .help-card{
+        background: var(--ion-color-secondary);
+        border-radius: 4px;
+        padding: 20px 10px;
+        margin: 4px;
+        transition: all 0.3s ease-in-out;
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        *{
+            color: var(--ion-color-light);
+            font-family: "karla";
+            font-weight: 300;
+        }
+
+        .help-img{            
+            height: 80px;
+            width: 60%;
+            margin: 0 auto;       
+            img{                
+                height: 100%;
+            }
+        }
+        h5{
+            margin: 0 20px;
+        }
+    }
+
+    .help-card-selected{
+        background: var(--ion-color-primary);
+    }
+}

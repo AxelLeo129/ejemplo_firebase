@@ -1,0 +1,7 @@
+{
+  "name": "mimento-dev-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

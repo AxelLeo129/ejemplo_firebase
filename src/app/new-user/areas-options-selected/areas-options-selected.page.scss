@@ -1,0 +1,45 @@
+ion-content{
+    ion-grid{
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .description{
+        color: var(--ion-color-primary);
+        font-family: "recoleta";
+        font-size: 1.2rem;        
+    }
+
+
+    ion-segment{
+        margin: 0  0 15px 0;
+        ion-label{
+            font-family: "recoleta";
+            text-transform: initial;
+            font-size: 1.1rem; 
+        }
+    }
+
+    .option-selected{
+        background: var(--ion-color-primary);        
+        border-radius: 4px;
+        padding: 10px;
+        margin: 4px 15px;            
+        display: flex;        
+        align-items: baseline;       
+        
+        h1, h2, h3, h4, h5, h6, p, small, ion-icon{
+            color: var(--ion-color-light);
+            font-family: "karla";
+            font-weight: 300;
+            margin: 0px;
+        }
+        ion-icon{
+            font-size: 1.4rem;
+            margin: 4px 10px 0 0;
+        }
+    }    
+}
+
+
+

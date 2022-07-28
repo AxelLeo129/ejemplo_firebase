@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ 'LANGUAGEMODAL.Title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-list>
+        <ion-item *ngFor="let lng of languages" (click)="select(lng.value, lng.index)"> 
+          <ion-label>{{lng.text}}</ion-label>
+          <ion-icon slot="end" name="checkmark" *ngIf="lng.value == selected"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

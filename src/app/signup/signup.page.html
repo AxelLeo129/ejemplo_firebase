@@ -1,0 +1,58 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="openLanguagePopover($event)">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+<ion-content>
+  <div class="wrapper">
+
+    <div class="logo">
+      <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+      <div class="signup-form">
+        <ion-input type="text" formControlName="name" clearInput placeholder="{{'SIGNUP.name_input' | translate }}">
+        </ion-input>
+        <div class="errors" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <span *ngIf="name.errors.required">
+            <small>{{ 'SIGNUP.validation_messages.name.required' | translate }}</small>
+          </span>
+        </div>
+        <ion-input type="email" clearInput formControlName="email" placeholder="{{'SIGNUP.email-input' | translate }}">
+        </ion-input>
+        <div class="errors" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <span *ngIf="email.errors.required">
+            <small>{{ 'SIGNUP.validation_messages.email.required' | translate }}</small>
+          </span>
+          <span *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
+            <small>{{ 'SIGNUP.validation_messages.email.pattern' | translate }}</small>
+          </span>
+        </div>
+        <ion-input type="password" formControlName="password" clearInput
+          placeholder="{{'SIGNUP.password-input' | translate }}">
+        </ion-input>
+        <div class="errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span *ngIf="password.errors.minlength">
+            <small>{{ 'SIGNUP.validation_messages.password.minlength' | translate }}</small>
+          </span>
+          <span *ngIf="password.errors.required">
+            <small>{{ 'SIGNUP.validation_messages.password.required' | translate }}</small>
+          </span>
+        </div>
+        <div class="accept-terms">
+          <ion-checkbox formControlName="accept_terms"></ion-checkbox>
+          <a (click)="presentModal()">{{ 'SIGNUP.Tems-text' | translate }}</a>
+        </div>
+        <br>
+        <ion-button fill="outline" color="primary" expand="block" class="singup-btn" type="submit"
+          [disabled]="!signupForm.valid">{{'SIGNUP.signup-button' | translate }}
+        </ion-button>
+      </div>
+    </form>
+    <ion-button fill="clear" class="btn-passrecovery" routerLink="/login">{{'SIGNUP.Login' | translate }}</ion-button>
+  </div>
+</ion-content>

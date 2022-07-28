@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ 'SHORTTERMGOALS.Title' | translate }}</h3>
+        </header>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="create-goal">
+            <ion-button (click)="presentModal()" fill="outline" color="primary" class="mimento-btn">
+              {{ 'SHORTTERMGOALS.Button' | translate }}
+            </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="divider"></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="goals-created">
+          <div *ngIf="!exists; else existed">
+            <ion-card class="goal-card">
+              <ion-card-content>
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                <div class="ion-text-left">
+                  <p>{{ 'SHORTTERMGOALS.Exists' | translate }}</p>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <ng-template #existed>
+            <div *ngFor="let item of goals">
+              <ion-card class="goal-card" [ngClass]="{'goal-card__completed': item.nivel_terminado == 1 }">
+                <ion-card-content>
+                  <ion-icon name="checkbox-outline"></ion-icon>
+                  <div class="ion-text-left">
+                    <p>{{ item.texto }}</p>
+                    <a *ngIf="item.nivel_terminado != 1" (click)="presentAlertConfirm(1, item)">{{ 'SHORTTERMGOALS.A' | translate }}</a>
+                    <small *ngIf="item.nivel_terminado == 1">{{ 'SHORTTERMGOALS.Small' | translate }}</small>
+                    <ion-icon name="trash-outline" (click)="presentAlertConfirm(2, item.id)" class="delete-goal-btn"></ion-icon>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ng-template>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

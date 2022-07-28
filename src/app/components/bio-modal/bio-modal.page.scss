@@ -1,0 +1,26 @@
+ion-content {
+    --background: var(--ion-color-white);
+}
+.autentication-container {
+    width: 80%;
+    max-width: 400px;
+    margin: 10% auto;
+    text-align: center;
+    p {
+        font-size: 1.1rem;
+    }
+}
+.padding-toponly {
+    padding-top: 30%;
+}
+
+.lottie-img {
+    width: 280px;
+    margin: 30px auto;
+}
+
+@media screen and (min-width: 768px) {
+    .padding-toponly {
+        padding-top: 10%;
+    }
+}

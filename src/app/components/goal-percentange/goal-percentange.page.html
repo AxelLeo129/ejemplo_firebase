@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">  
+      </div>   
+    </ion-title>
+    <div slot="end">
+      <ion-button fill='clear' slot="end" (click)="cancel()">        
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>   
+        <header>          
+          <h3>Marca tu progreso</h3>   
+          <p>Si marcas 100% la meta <br>
+            se dara poralcanzada.</p>       
+        </header>  
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="select-percentage">
+          <p>
+            <ion-checkbox (click)="update(25)"></ion-checkbox> 25%
+          </p>
+          <p>
+            <ion-checkbox (click)="update(50)"></ion-checkbox> 50%
+          </p>
+          <p>
+            <ion-checkbox (click)="update(75)"></ion-checkbox> 75%
+          </p>
+          <p>
+            <ion-checkbox (click)="update(100)"></ion-checkbox> 100%
+          </p>                        
+        </div>
+      </ion-col>
+    </ion-row>  
+
+  </ion-grid>
+</ion-content>

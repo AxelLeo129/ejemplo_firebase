@@ -1,0 +1,33 @@
+.wrapper {
+  max-width: 400px;
+  margin: 0 auto;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.logo {
+  width: 80%;
+  margin: 40px auto 40px auto;
+  text-align: center;
+}
+
+.signup-form {
+  padding: 0 40px;
+}
+
+.signup-form .singup-btn {
+  border-radius: 4px;
+  margin: 0 auto 20px auto;
+  height: 50px;
+  max-width: 250px;
+}
+/*# sourceMappingURL=signup.page.css.map */

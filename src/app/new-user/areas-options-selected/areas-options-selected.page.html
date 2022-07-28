@@ -1,0 +1,78 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">  
+      </div>   
+    </ion-title>
+    <div slot="end">
+      <ion-button fill='clear' slot="end" href="/login">        
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>                          
+        <h4>Áreas y opciones seleccionadas.</h4>        
+        <h3>Personal</h3>            
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col size-lg="4" size-md="6" size-xs="12">
+        <div class="option-selected">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          <div class="option-name">
+            <h4>Trastorno de somatizacion</h4>
+            <small>(Dolores físicos del cuerpo <br> sin causa médica diagnosticada )</small>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size-lg="4" size-md="6" size-xs="12">
+        <div class="option-selected">
+          <ion-icon name="checkmark-outline"></ion-icon>
+            <div class="option-name">
+            <h4>Sintomas de ansidedad</h4>
+          </div>
+        </div>
+      </ion-col>                                                           
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3>Etapas de la vida</h3>   
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-lg="4" size-md="6" size-xs="12">
+        <div class="option-selected">
+          <ion-icon name="checkmark-outline"></ion-icon>
+            <div class="option-name">
+            <h4>Balance de vida</h4>
+          </div>
+        </div>
+      </ion-col> 
+      <ion-col size-lg="4" size-md="6" size-xs="12">
+        <div class="option-selected">
+          <ion-icon name="checkmark-outline"></ion-icon>
+            <div class="option-name">
+            <h4>Manejo de emosiones</h4>
+          </div>
+        </div>
+      </ion-col> 
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button class="mimento-btn">Continuar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

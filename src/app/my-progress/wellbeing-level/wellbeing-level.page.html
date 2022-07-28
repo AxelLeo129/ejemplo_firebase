@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ 'WELLBEINGLEVEL.Title' | translate }}</h3>
+        </header>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-segment [(ngModel)]="test_tab" (ionChange)="segmentChanged()">
+          <ion-segment-button value="cuestionarios">
+            <ion-label>{{ 'WELLBEINGLEVEL.Segment1' | translate }}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="resultados">
+            <ion-label>{{ 'WELLBEINGLEVEL.Segment2' | translate }}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+    <div [hidden]="test_tab != 'cuestionarios'">
+      <ion-row>
+        <ion-col size-md="6" *ngFor="let item of items">
+          <ion-card class="questionnaire-card">
+            <ion-card-content>
+              <!-- <ion-icon name="clipboard-outline"></ion-icon> -->
+              <div class="ion-text-left">
+                <h3>{{ item.titulo[index] }}</h3>
+                <div [innerHTML]="item?.html[index]">
+
+                </div>
+                <p>{{ item?.descripcion[index] }}</p>
+              </div>
+            </ion-card-content>
+            <div class="card-footer">
+              <div class="divider"></div>
+              <div class="actions">
+                <p>{{ item.preguntas }} {{ 'WELLBEINGLEVEL.No' | translate }}</p>
+                <ion-button size="small" fill="clear" (click)="startTest(item.id1)">
+                  {{ 'WELLBEINGLEVEL.Button' | translate }}</ion-button>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div [hidden]="test_tab != 'resultados'">
+      <ion-row>
+        <ion-col size-md="6" size-xs="12">
+          <div class="title">
+            <ion-icon name="clipboard-outline"></ion-icon>
+            <h3>PERMA</h3>
+          </div>
+
+          <ion-card class="result-card" *ngFor="let item of items">
+            <ion-card-content [hidden]="!resultados">
+              <div class="ion-text-left">
+                <div [innerHTML]="item?.resultados[index]">
+
+                </div>
+              </div>
+            </ion-card-content>
+            <ion-card-content [hidden]="resultados">
+              {{ 'WELLBEINGLEVEL.Empty' | translate }}
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card class="result-card">
+            <ion-card-content [hidden]="!resultados">
+              <canvas #barChart></canvas>
+            </ion-card-content>
+            <!-- <ion-card-content [hidden]="resultados">
+              {{ 'WELLBEINGLEVEL.Empty' | translate }}
+            </ion-card-content> -->
+          </ion-card>
+        </ion-col>
+
+        <!-- <ion-col size-md="6" size-xs="12">
+            <div class="title">
+              <ion-icon name="clipboard-outline"></ion-icon>
+              <h3>Inventario de felicidad autentica</h3>           
+            </div>
+    
+            <ion-card class="result-card">
+              <ion-card-content>
+                Chart goes here
+              </ion-card-content>
+            </ion-card>
+          </ion-col>    -->
+
+      </ion-row>
+    </div>
+
+  </ion-grid>
+
+</ion-content>

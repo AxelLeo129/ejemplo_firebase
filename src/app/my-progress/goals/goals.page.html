@@ -1,0 +1,144 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ 'GOALS.Title' | translate }}</h3>
+        </header>
+      </ion-col>
+    </ion-row>
+
+    <!-- 
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <header>
+            <h3>{{ 'EMOTIONTRACKER.Title' | translate }}</h3>
+            <p>{{ 'EMOTIONTRACKER.Instructions' | translate }}</p>
+            <div class="select-month">
+              <ion-datetime displayFormat="MMMM" (ionChange)="getNewGoals()" [monthNames]="monthNames" [(ngModel)]="date_string"
+                placeholder="{{placeholder}}"></ion-datetime>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+          </header>
+        </div>
+      </ion-col>
+    </ion-row>
+     -->
+
+    <ion-row>
+      <ion-col>
+        <ion-segment [(ngModel)]="goal_tab" (ionChange)="changeSegment()">
+          <ion-segment-button value="porcumplir">
+            <ion-label>{{ 'GOALS.Segment' | translate }}</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="cumplidos">
+            <ion-label>{{ 'GOALS.Segment1' | translate }}</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
+
+
+    <div [ngSwitch]="goal_tab">
+      <ng-container *ngSwitchCase="'porcumplir'">
+        <ion-row>
+          <ng-template [ngIf]="!load" [ngIfElse]="loaded">
+            <ion-col size-md="4">
+              <ion-card class="goal-card">
+                <ion-card-content>
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  <div class="ion-text-left">
+                    <p>{{ 'GOALS.Load' | translate }}</p>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ng-template>
+          <ng-template #loaded>
+            <ion-col size-md="4" *ngFor="let item of items1.porcumplir">
+              <ion-card class="goal-card">
+                <ion-card-content (click)="editPercentage(item)">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  <div class="ion-text-left">
+                    <p>{{ item.texto }}</p>
+                  </div>
+                </ion-card-content>
+                <div class="card-footer">
+                  <div class="divider"></div>
+                  <div class="dates">
+                    <p>Creada: <br> {{ item.fecha_creacion }}</p>
+                    <p>Cumplir: <br> {{ item.fecha_cumplimiento }}</p>
+                  </div>
+                  <div class="actions">
+                    <p (click)="editPercentage(item)">Marca tu progreso % {{item.nivel_terminado}}</p>
+                    <ion-icon (click)="deleteGoal(item.id)" name="trash-outline" class="delete-goal-btn"></ion-icon>
+                  </div>
+                </div>
+              </ion-card>
+            </ion-col>
+          </ng-template>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngSwitchCase="'cumplidos'">
+        <ion-row>
+          <ng-template [ngIf]="!load1" [ngIfElse]="loaded1">
+            <ion-col size-md="4">
+              <ion-card class="goal-card">
+                <ion-card-content>
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  <div class="ion-text-left">
+                    <p>{{ 'GOALS.Load' | translate }}</p>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ng-template>
+          <ng-template #loaded1>
+            <ion-col size-md="4" *ngFor="let item of items1.cumplidos">
+              <ion-card class="goal-card goal-card__completed">
+                <ion-card-content>
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  <div class="ion-text-left">
+                    <p>{{ item.texto }}</p>
+                  </div>
+                </ion-card-content>
+                <div class="card-footer">
+                  <div class="divider"></div>
+                  <div class="dates">
+                    <p>Creada: <br> {{ item.fecha_creacion }}</p>
+                    <p>Cumplir: <br> {{ item.fecha_cumplimiento }}</p>
+                  </div>
+                  <div class="actions">
+                    <p>Progreso 100%</p>
+                    <ion-icon (click)="deleteGoal(item.id)" name="trash-outline" class="delete-goal-btn"></ion-icon>
+                  </div>
+                </div>
+              </ion-card>
+            </ion-col>
+          </ng-template>
+        </ion-row>
+      </ng-container>
+
+    </div>
+
+  </ion-grid>
+
+  <div class="create-goal">
+    <ion-button class="mimento-btn" (click)="newGoal()">{{ 'GOALS.Button' | translate }}</ion-button>
+  </div>
+</ion-content>

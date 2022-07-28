@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  <ion-toolbar [ngClass]="ejercicio?.clase">
+    <ion-button (click)="cancel()" fill='clear' slot="start">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-blano-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="exercise-wrapper" [ngClass]="ejercicio?.clase">
+    <ion-slides pager="false" #slides>
+      <ion-slide>
+        <ion-grid class="ion-text-center">
+          <ion-row>
+            <ion-col>
+              <h3>{{ nombre_usuario }}</h3>
+              <h4>{{ 'EXERCISE.Alert' | translate }}</h4>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <img src="/assets/imgs/felicitaciones.svg" alt="">
+              <!--  <ng-lottie width="100%" height="200px" containerClass="moving-box" [options]="options"></ng-lottie> -->
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p innerHTML="{{ 'EXERCISE.Description' | translate }}"></p>
+              <ion-button (click)="vetResumen()">{{ 'EXERCISE.Button' | translate }}</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <div class="exercise-wrapper" [ngClass]="ejercicio?.clase">
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="exercise-content">
+
+                  <div class="title">
+                    <h3>{{ 'EXERCISEDETAILS.Title' | translate }}</h3>
+                  </div>
+                  <div class="description">
+                    <p>Nombre del ejercicio realizado</p>
+                  </div>
+                  <div class="divider"></div>
+
+                  <div class="exercise-summary">
+                    <div class="summary-item" *ngFor="let qr of respuestas; index as s">
+                      <div *ngIf="qr?.texto_resumen && data_save[qr.id]">
+                        <h4>
+                          {{qr.texto_resumen[indice]}}
+                        </h4>
+                        <p *ngIf="qr.tipo == 'L' || qr.tipo == 'C'">{{data_save[qr.id]?.respuesta}}</p>
+                        <div *ngIf="qr.tipo == 'M'">
+                          <p *ngFor="let r of data_save[qr.id]">{{r.texto[indice]}}</p>
+                        </div>
+                        <p *ngIf="qr.tipo == 'R'">{{data_save[qr.id]?.respuesta}}</p>
+                      </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="summary-item">
+                      <h4>
+                        {{ 'EXERCISE.When' | translate }}
+                      </h4>
+                      <p>{{ fecha_realizacion | date:'dd/MM/yyyy' }}</p>
+                    </div>
+                    <!-- <div class="summary-item">
+                      <h4>
+                        Tú, automáticamente pensaste esto:
+                      </h4>
+                      <p>Incomodo por la situación</p>
+                    </div> -->
+                  </div>
+
+                  <div class="divider"></div>
+                </div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <p innerHTML="{{ 'EXERCISE.Congratulations' | translate }}"></p>
+                <ion-button (click)="goHome()" class="new-exercise-btn">{{ 'EXERCISE.Next' | translate }}</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <a (click)="history()">{{ 'EXERCISE.History' | translate }}</a>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

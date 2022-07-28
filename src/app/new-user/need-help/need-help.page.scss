@@ -1,0 +1,55 @@
+.logo {
+    min-width: 220px;
+}
+
+ion-grid {
+    margin-top: 35%;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+ion-button {
+    height: 50px;
+    margin-bottom: 14px;
+}
+
+.buttons {
+    width: 200px;
+}
+
+header {
+    margin: 0 20px 20px 20px;
+
+    .title {
+        margin-bottom: 20px;
+    }
+
+    small {
+        color: var(--ion-color-primary);
+        font-weight: 300;
+    }
+}
+
+.gift-banner {
+    border: solid 1px var(--ion-color-secondary);
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.17);
+    padding: 0px 20px;
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    img {
+        height: 60px;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        text-align: center;
+        width: 100%;
+    }
+}

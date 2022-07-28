@@ -1,0 +1,14 @@
+ion-grid{
+    padding-top: 30%;
+    max-width: 300;
+    color: var(--ion-color-primary);
+}
+.select-percentage{
+
+    p{
+        ion-checkbox{
+            --border-radius: 100px;
+            margin-right: 10px;
+        }
+    }
+}

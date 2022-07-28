@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ 'ABOUTAPP.Title' | translate }}</h3>
+        </header>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="terms" innerHTML="{{ 'ABOUTAPP.Description' | translate }}"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <a href="http://mimentoapp.com">{{ 'ABOUTAPP.Link' | translate }}</a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

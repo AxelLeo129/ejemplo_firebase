@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">  
+      </div>   
+    </ion-title>
+    <div slot="end">
+      <ion-button fill='clear' slot="end" href="/login">        
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>        
+        <h3>Mi hijo usara el App</h3>
+        <p>Para que tu hijo o hija haga uso
+          de mimento y tu puedas recibir
+          un reporte semanal de su progreso
+          debes subir una foto de tu DPI.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>        
+        <ion-button class="mimento-btn">Subir DPI</ion-button>
+      </ion-col>      
+    </ion-row>
+  </ion-grid>
+</ion-content>

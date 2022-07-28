@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="329" height="100" viewBox="0 0 329 100">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_57" data-name="Rectangle 57" width="329" height="100" rx="8" transform="translate(11933 8711)" fill="#77b9dc"/>
+    </clipPath>
+  </defs>
+  <g id="mimento-card-bg" transform="translate(-11933 -8711)" clip-path="url(#clip-path)">
+    <g id="Group_304" data-name="Group 304" transform="translate(11821.169 8677.146) rotate(-19)">
+      <path id="Path_481" data-name="Path 481" d="M100.1,52.215C100.1,78,78.357,98.9,51.543,98.9S3,78,3,52.215,24.742,5.53,51.543,5.53,100.1,26.428,100.1,52.215" transform="translate(240 210.47)" fill="#fca333" opacity="0.19"/>
+      <path id="Path_482" data-name="Path 482" d="M157.7,20.452l-1.369-1.32a49.692,49.692,0,0,0-68.317,0l-39.108,37.6a45.145,45.145,0,0,0-8.164,55.24,31.176,31.176,0,0,0,3.263,4.95l.2.257.489.611a46.822,46.822,0,0,0,4.216,4.644l1.369,1.308a46.437,46.437,0,0,0,3.825,3.349L84.473,156.3l30.81-29.624c1.137-.9,2.249-1.87,3.312-2.9l39.108-37.6a45.218,45.218,0,0,0,0-65.689" transform="translate(252.431 210.471)" fill="#2e4294" opacity="0.19"/>
+    </g>
+  </g>
+</svg>

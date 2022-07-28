@@ -1,0 +1,103 @@
+<ion-content>
+  <ng-template [ngIf]="loaded">
+    <ion-slides [options]="slideOpts" class="h100 " pager="true">
+      
+      <ion-slide class="slide-1">
+        <ion-grid class="ion-align-items-center">
+          <ion-row class="w100">
+            <ion-col>
+              <div class="slide-header">
+                <div class="logo">
+                  <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+                </div>
+                <ion-button fill="clear" class="btn-skip-intro" routerLink="/signup">{{ 'ONBOARDING1.Href' | translate }}
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-align-self-center">
+            <ion-col size="12">
+              <div class="onboarding-img">
+                <img src="assets/imgs/onboarding/reloj-slide-1.png" alt="Figura de personas en crecimiento personal">
+              </div>
+            </ion-col>
+            <ion-col size="12">
+              <div class="onboarding-text">
+                <h3>{{ 'ONBOARDING1.Title1' | translate }}</h3>
+                <p>{{ 'ONBOARDING1.P1' | translate }}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+
+      <ion-slide class="slide-2">
+        <ion-grid class="ion-align-items-center">
+          <ion-row class="w100">
+            <ion-col>
+              <div class="slide-header">
+                <div class="logo">
+                  <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+                </div>
+                <ion-button fill="clear" class="btn-skip-intro" routerLink="/signup">{{ 'ONBOARDING1.Href' | translate }}
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-align-self-center">
+            <ion-col size="12">
+              <div class="onboarding-img">
+                <img src="assets/imgs/onboarding/cell-slide-2.svg" alt="Figura de personas en crecimiento personal">
+              </div>
+            </ion-col>
+            <ion-col size="12">
+              <div class="onboarding-text">
+                <h3>{{ 'ONBOARDING1.Title2' | translate }}</h3>
+                <p>{{ 'ONBOARDING1.P2' | translate }}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+
+      <ion-slide class="slide-3">
+        <ion-grid class="ion-align-items-center">
+          <ion-row class="w100">
+            <ion-col>
+              <div class="slide-header">
+                <div class="logo">
+                  <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+                </div>
+                <ion-button fill="clear" class="btn-skip-intro" href="/signup">{{ 'ONBOARDING1.Href' | translate }}
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-align-self-center">
+            <ion-col size="12">
+              <div class="onboarding-img">
+                <img src="assets/imgs/onboarding/mujer-libros-slide-3.svg"
+                  alt="Figura de personas en crecimiento personal">
+              </div>
+            </ion-col>
+            <ion-col size="12">
+              <div class="onboarding-text">
+                <h3>{{ 'ONBOARDING1.Title3' | translate }}</h3>
+                <p>{{ 'ONBOARDING1.P3' | translate }}</p>
+              </div>
+              <ion-button color="primary" fill="outline" class="btn-goto-signup" routerLink="/signup">
+                {{ 'ONBOARDING1.Button' | translate }}</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+
+    </ion-slides>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="exercise-toolbar">
+    <!-- 
+    
+      Cada ejercicio debe tener de fondo el color que le corresponde
+      segun la tarjeta del paso anterior (lista de ejercicios)
+
+      Favor agregar back button, no se lo pude agrear porque al parecer
+      solo aparece cuando hay historial y esta pantalla se debe mostrar
+      tras el usuario hace click en el card de ejercicio que desea realizar
+    
+
+      BORRAR ESTE COMMENT
+
+
+    -->
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-blano-horizontal.svg" alt="Logo App mimento">  
+      </div>   
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="exercise-wrapper">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="exercise-content">
+
+            <div class="title">
+              <h3>Transformando la tristeza</h3>
+            </div>
+            <div class="divider"></div>
+            <div class="description">
+              <p>"La tristeza es la manera del cuerpo de recordarnos del hecho que estamos vivos"</p>
+            </div>
+            <div class="time">
+              <p><ion-icon name="timer-outline"></ion-icon> 5 minutos</p>
+            </div>
+            <ion-button class="start-btn">Empezar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div>
+</ion-content>
+

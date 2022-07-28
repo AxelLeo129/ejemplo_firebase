@@ -1,0 +1,27 @@
+header{
+    color:  var(--ion-color-primary);
+}
+.divider{
+    background: #00000012;
+    height: 1px;
+    margin: 10px;    
+}
+.logo{
+    margin-left: -15%;
+}
+
+.calendar-icon{    
+    margin-left: 8px;
+    margin-right: 25px;
+}
+
+.select-month {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--ion-color-primary-10);
+
+    ion-icon{
+        margin: 0 10px;
+    }
+}

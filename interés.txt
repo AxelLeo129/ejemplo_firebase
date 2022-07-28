@@ -1,0 +1,94 @@
+//Upload files
+-------scss----------
+.noshow {
+    display: none;
+}
+
+--------html---------
+<input [id]="'getImage'+id" class="noshow" type="file" accept="image/*" (change)="changeListener($event)">
+
+----------ts--------
+
+private actionSheetController: ActionSheetController
+
+async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Selecciona el documento a enviar',
+      buttons: [{
+          text: 'Imagen', // TIPO 2
+          handler: () => {
+            let ele = document.getElementById("getImage" + this.id);
+            ele.click();
+          }
+        },
+        {
+          text: 'Cancelar',
+          icon: 'close',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+
+    await actionSheet.present();
+}
+
+changeListener($event: any) {
+    //console.log($event)
+    let f = new Date();
+
+    let file: File = $event.target.files[0],
+      fullname = file.name.split('.'),
+      extension = fullname.pop()
+    this.dpi = {
+      file: file,
+      tipo: 1,
+      folder: '/documentos_identificacion',
+      name: f.getTime(),
+      extension
+    }
+    
+    //this.setUser();
+
+  }
+
+---------service----------
+this.fileService.uploadFile(imageFile.file, imageFile.tipo, imageFile.folder, imageFile.name, imageFile.extension).then(async (url: string) => {
+  
+}
+
+//Token para HttpRequests
+-------ts--------------------
+this.utilityService.httpRequest('', true, true).then(res => {
+      console.log(res);
+    });
+
+--------service------------
+public httpRequest(method: string, getType: boolean, silence: boolean, afterTitle?: string, afterMessage?: string, jsonData?: any, headers?: boolean, responseType?: string): Promise<any> {
+    return new Promise(async (res, rej) => {
+      let loading: HTMLIonLoadingElement = await this.createLoading()
+      try {
+        //let token: string;
+        let token = await (await this.auth.currentUser).getIdToken(false)
+        console.log(token);
+        /*if (headers) token = await (await this.auth.currentUser).getIdToken(false)
+        let options: any = getType ? {} : { responseType: responseType || 'text' }
+        if (headers) options.headers = new HttpHeaders().set("authorization", token)
+        let requestT = getType ?
+          this.http.get(this.API_ENDPOINT + method, options) :
+          this.http.post(this.API_ENDPOINT + method, jsonData, options);
+        let s: any = await requestT.toPromise()*/
+        /*await loading.dismiss();
+        if (s && s.error && s.error !== 0) // NO HAY ERROR
+          rej(s.error)
+        else
+          res(s)*/
+      } catch (e) {
+        await loading.dismiss();
+        let em = e && e.error && e.error.code ? e.error.code : "error D"
+        await this.presentAlert("Un error ha ocurrido", `No fue posible realizar la petición.`)
+        rej(e)
+      }
+    })
+  }

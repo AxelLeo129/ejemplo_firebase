@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+    
+      <!-- <a slot="end" (click)="cancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </a> -->
+
+      <ion-button fill='clear' slot="end" (click)="cancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>        
+          <h3>{{ tema.titulo }}</h3>
+          <p [innerHTML]="tema.description"></p>        
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col>
+        <ion-button color="primary" fill="outline">Seleccionar</ion-button>
+      </ion-col>      
+    </ion-row> -->
+  </ion-grid>
+</ion-content>

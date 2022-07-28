@@ -1,0 +1,256 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="exercise-toolbar" [ngClass]="class_text">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="avatar-name">
+        <div class="avatar">
+          <img 
+            [src]="therapist?.imagen"
+            alt="">
+        </div>
+        <ion-label> {{therapist?.nombre_publico}}</ion-label>
+      </div>
+    </ion-title>
+    <div slot="end">
+      <ion-button id="step4" fill='clear' slot="end" (click)="presentModal()">
+        <ion-icon class="sendBtn-icon" color="secondary" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content overflow-scroll="true" padding [scrollEvents]="true" [ngClass]="class_text">
+  <ng-template [ngIf]="loaded" [ngIfElse]="noLoaded">
+    <div class="time-left-banner">
+      <!-- <p>Tiempo restante: 1:23</p> -->
+    </div>
+
+    <div>
+      <div class='chat' #scrollMe>
+        <div *ngIf="!disabled_scroll">
+          <ion-infinite-scroll threshold="25%" position="top" (ionInfinite)="loadMore($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+            </ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </div>
+
+        <ng-container *ngFor="let item of messages; index as i">
+          {{item.tipo}}
+          <ng-container [ngSwitch]="item.data.tipo">
+            <div *ngSwitchCase="'A'" class='' uk-lightbox id="test">
+              <div class="incoming_msg mt-2" *ngIf="item.uid != uid">
+                <!-- <div class="incoming_msg_img">
+                  <img [src]="secondUser.foto" onError="this.src='../../../assets/avatar_org.jpg'" />
+                </div> -->
+
+                <div class="received_msg mt-2" *ngIf="item.data.creador != uid">
+                  <div class="received_withd_msg">
+                    <div>
+                      <span class="time_date">
+                        <strong>
+                          {{therapist?.nombre_publico}}
+                        </strong>
+                      </span>
+                      <audio [src]="item.data.url_audio" controls></audio>
+                      <small class="date-message">
+                        {{ item.data.fecha_creacion | date:'MMM dd HH:mm' }}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="outgoing_msg " *ngIf="item.data.creador == uid">
+                <div class="sent_msg">
+                  <p>
+                    <span class="time_date">
+                      <strong>
+                        {{user?.nombre}}
+                      </strong>
+                    </span>
+
+                    <audio [src]="item.data.url_audio" controls></audio>
+
+                    <small class="date-message">
+                      {{ item.data.fecha_creacion | date:'MMM dd HH:mm' }}
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div *ngSwitchCase="'TN'" class='' uk-lightbox id="test">
+              <div class="incoming_msg mt-2" *ngIf="item.uid != uid">
+                <!-- <div class="incoming_msg_img">
+                  <img [src]="secondUser.foto" onError="this.src='../../../assets/avatar_org.jpg'" />
+                </div> -->
+
+                <div class="received_msg mt-2" *ngIf="item.data.creador != uid">
+                  <div class="received_withd_msg">
+                    <div>
+                      <span class="time_date">
+                        <strong>
+                          {{therapist?.nombre_publico}}
+                        </strong>
+                      </span>
+                      <ng-container *ngIf="item.data.additionalData.type == 'V'; else post">
+                        <p>
+                          {{ 'CHAT.Message_type_TV' | translate }}<a
+                            (click)="presentModal2(item.data.additionalData.link)">{{item.data.additionalData.nombre}}</a>
+                        </p>
+                      </ng-container>
+                      <ng-template #post>
+                        <p>
+                          {{ 'CHAT.Message_type_TN' | translate }}<a
+                            [routerLink]="item.data.additionalData.link">{{item.data.additionalData.nombre}}</a>
+                        </p>
+                      </ng-template>
+                      <small class="date-message">
+                        {{ item.data.fecha_creacion | date:'MMM dd HH:mm' }}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngSwitchCase="'TE'" class='' uk-lightbox id="test">
+              <div class="incoming_msg mt-2" *ngIf="item.uid != uid">
+                <!-- <div class="incoming_msg_img">
+                  <img [src]="secondUser.foto" onError="this.src='../../../assets/avatar_org.jpg'" />
+                </div> -->
+
+                <div class="received_msg mt-2" *ngIf="item.data.creador != uid">
+                  <div class="received_withd_msg">
+                    <div>
+                      <span class="time_date">
+                        <strong>
+                          {{therapist?.nombre_publico}}
+                        </strong>
+                      </span>
+                      <p>
+                        {{ 'CHAT.Message_type_TE' | translate }}<a
+                          [routerLink]="item.data.additionalData.link">{{item.data.additionalData.nombre}}</a>
+                      </p>
+                      <small class="date-message">
+                        {{ item.data.fecha_creacion | date:'MMM dd HH:mm' }}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngSwitchDefault class='' uk-lightbox id="test">
+              <div class="incoming_msg mt-2" *ngIf="item.uid != uid">
+                <!-- <div class="incoming_msg_img">
+                  <img [src]="secondUser.foto" onError="this.src='../../../assets/avatar_org.jpg'" />
+                </div> -->
+
+                <div class="received_msg mt-2" *ngIf="item.data.creador != uid">
+                  <div class="received_withd_msg">
+                    <div>
+                      <span class="time_date">
+                        <strong>
+                          {{therapist?.nombre_publico}}
+                        </strong>
+                      </span>
+                      <p>{{item.data.texto}}</p>
+                      <small class="date-message">
+                        {{ item.data.fecha_creacion | date:'MMM dd HH:mm' }}
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="outgoing_msg " *ngIf="item.data.creador == uid">
+                <div class="sent_msg">
+                  <p>
+                    <span class="time_date">
+                      <strong>
+                        {{user?.nombre}}
+                      </strong>
+                    </span>
+                    {{item.data.texto}}
+                    <small class="date-message">
+                      {{ item.data.fecha_creacion | date:'MMM dd HH:mm' }}
+                    </small>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #noLoaded>
+    <ion-content [ngClass]="class_text">
+      <ion-progress-bar *ngIf="!loaded_null" type="indeterminate"></ion-progress-bar>
+    </ion-content>
+  </ng-template>
+</ion-content>
+
+<ion-footer class="footer" [ngClass]="class_text">
+  <ion-toolbar class="footerSections">
+    <ng-template [ngIf]="isRecording" [ngIfElse]="notRcording">
+      <div class="containerFooter">
+        <div class="send-button-parent">
+          <ion-button (click)="cancelRecording()" class="sendBtn">
+            <ion-icon class="sendBtn-icon" name="close-outline" color="secondary"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="send-button-parent" id="stepV">
+          <ion-button (click)="stopRecord()" class="sendBtn">
+            <ion-icon class="sendBtn-icon" name="stop-circle-outline" color="secondary"></ion-icon>
+          </ion-button>
+        </div>
+        <div class="inputConatiner audioContainer">
+          <ng-template [ngIf]="!file">
+            <ion-icon (click)="play()" [name]="isPlaying ? 'play-outline' : 'stop-outline'"></ion-icon>
+          </ng-template>
+          <p class="timer">
+            {{timer | number:'2.0-0'}}
+          </p>
+        </div>
+        <div class="send-button-parent" id="step2">
+          <ion-button (click)="setMessageAudio()" class="sendBtn">
+            <ion-icon class="sendBtn-icon" name="send" color="secondary"></ion-icon>
+          </ion-button>
+        </div>
+        <!-- </ng-template> -->
+      </div>
+    </ng-template>
+  </ion-toolbar>
+</ion-footer>
+<ng-template #notRcording>
+  <div class="containerFooter">
+    <div class="send-button-parent" id="step3">
+      <ion-button (click)="presentAlertConfirm()" class="sendBtn">
+        <ion-icon class="sendBtn-icon" name="radio-outline" color="secondary"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="send-button-parent" id="stepV">
+      <ion-button (click)="startRecord()" class="sendBtn">
+        <ion-icon class="sendBtn-icon" name="mic-outline" color="secondary"></ion-icon>
+      </ion-button>
+    </div>
+    <div class="inputConatiner">
+      <ion-input class="placeholdertext inputMessage inputBg" type="text" placeholder="Escribe un mensaje"
+        (keyup.enter)="setMessage()" [(ngModel)]="new_message" padding-start>
+      </ion-input>
+    </div>
+    <!-- <div class="send-button-parent" *ngIf="new_message == ''; else button" color="secondary">
+        <ion-button (click)="presentActionSheet()" class="sendBtn">
+          <ion-icon class="sendBtn-icon" name="attach" color="secondary"></ion-icon>
+        </ion-button>
+      </div>
+      <ng-template #button> -->
+    <div class="send-button-parent" id="step2">
+      <ion-button (click)="setMessage()" class="sendBtn">
+        <ion-icon class="sendBtn-icon" name="send" color="secondary"></ion-icon>
+      </ion-button>
+    </div>
+    <!-- </ng-template> -->
+  </div>
+</ng-template>

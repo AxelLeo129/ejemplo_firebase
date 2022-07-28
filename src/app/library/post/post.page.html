@@ -1,0 +1,36 @@
+<div [ngClass]="nota.clase">
+  <ion-toolbar class="transparente">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/home" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+  <ion-toolbar class="transparente" @list>
+    <header @items>
+      <h3> {{nota.texto[index]}}</h3>
+      <p>{{nota.descripcion[index]}}</p>
+    </header>
+  </ion-toolbar>
+</div>
+<ion-content>
+
+  <article>
+    <ion-grid>
+      <ion-row @list>
+        <ion-col @items [innerHTML]="nota.html[index]"></ion-col>
+      </ion-row>
+      <!-- <ion-row>
+        <ion-col *ngIf="nota.video == ''" [innerHTML]="nota.html[index]">
+
+        </ion-col>
+        <ion-col *ngIf="nota.video != ''">
+          <div class="ion-text-center">
+            <ion-button (click)="video()" class="mimento-btn">
+              Ver Video
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row> -->
+    </ion-grid>
+  </article>
+</ion-content>

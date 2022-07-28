@@ -1,0 +1,83 @@
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'LIVECHATMODAL.Title2' | translate }}</h3>
+        </div>
+        <ion-card class="card-my-subscription">
+          <ion-card-content>
+            <br>
+            <h4>{{ tratamiento }} {{ name }}</h4>
+            <p>
+              <!-- {{ 'LIVECHATMODAL.Descripcion' | translate }} --> {{ especial }}
+            </p>
+            <div class="divider"></div>
+          </ion-card-content>
+          <div class="card-footer ion-text-right">
+            <!-- <ion-button fill="clear" size="small" color="medium">{{ 'PROFILE.Button' | translate }}</ion-button> -->
+            <ion-button fill="clear" size="small" color="medium" (click)="changeTherapist()">
+              {{ 'PROFILE.Button1' | translate }}</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title9' | translate }}</h3>
+        </div>
+        <ion-card class="card-my-subscription">
+          <ion-card-content>
+            <br>
+            <p>{{ 'PROFILE.Text9' | translate }}</p>
+            <div class="divider"></div>
+          </ion-card-content>
+          <div class="card-footer ion-text-right">
+            <!-- <ion-button fill="clear" size="small" color="medium">{{ 'PROFILE.Button' | translate }}</ion-button> -->
+            <ion-button fill="clear" size="small" color="medium" (click)="presentAlertConfirm3()">
+              {{ 'PROFILE.ButtonQE' | translate }}</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="live_chat != false">
+      <ion-col>
+        <header>
+          <h3>{{ 'LIVECHATMODAL.Title1' | translate }}</h3>
+          <h5>{{ 'LIVECHATMODAL.Descripcion1' | translate }}</h5>
+        </header>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="live_chat != false">
+      <ion-col>
+        <div class="create-goal">
+          <form (ngSubmit)="setLiveChat()">
+            <ion-label>{{ 'LIVECHATMODAL.Select0' | translate }}</ion-label>
+            <ion-select name="day" [(ngModel)]="dia" placeholder="{{ 'LIVECHATMODAL.Select' | translate }}">
+              <ion-select-option value="0">{{ 'LIVECHATMODAL.Sunday' | translate }}</ion-select-option>
+              <ion-select-option value="1">{{ 'LIVECHATMODAL.Monday' | translate }}</ion-select-option>
+              <ion-select-option value="2">{{ 'LIVECHATMODAL.Tuesday' | translate }}</ion-select-option>
+              <ion-select-option value="3">{{ 'LIVECHATMODAL.Wednesday' | translate }}</ion-select-option>
+              <ion-select-option value="4">{{ 'LIVECHATMODAL.Thursday' | translate }}</ion-select-option>
+              <ion-select-option value="5">{{ 'LIVECHATMODAL.Friday' | translate }}</ion-select-option>
+              <ion-select-option value="6">{{ 'LIVECHATMODAL.Saturday' | translate }}</ion-select-option>
+            </ion-select>
+            <ion-label>{{ 'LIVECHATMODAL.Select1' | translate }}</ion-label>
+            <ion-datetime name="hour" [(ngModel)]="fecha_inicio" display-format="HH:mm" picker-format="HH:mm"
+              [value]="today_date" (ionChange)="setEnd()" doneText="Ok"></ion-datetime>
+            <ion-label>{{ 'LIVECHATMODAL.Select2' | translate }}</ion-label>
+            <p>{{ fecha_fin }}</p>
+            <h5><small>{{ 'LIVECHATMODAL.Descrpcion2' | translate }}</small></h5>
+            <ion-button [disabled]="dia == null || dia == '' || fecha_inicio == null || fecha_inicio == ''"
+              type="submit" fill="outline" color="primary" class="mimento-btn">
+              {{ 'LIVECHATMODAL.Button1' | translate }}
+            </ion-button>
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

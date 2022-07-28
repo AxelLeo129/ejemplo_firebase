@@ -1,0 +1,36 @@
+<ion-content>
+  <div class="wrapper">
+
+    <div class="logo">
+      <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+    </div>
+
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+      <div class="login-form">
+        <ion-input type="email" formControlName="correo" clearInput placeholder="{{ 'LOGIN.email-input' | translate }}"></ion-input>
+        <div class="errors" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+          <span *ngIf="correo.errors.required">
+            <small>{{ 'SIGNUP.validation_messages.email.required' | translate }}</small>
+          </span>
+          <span *ngIf="(correo.dirty || correo.touched) && correo.invalid && correo.errors.pattern">
+            <small>{{ 'SIGNUP.validation_messages.email.pattern' | translate }}</small>
+          </span>
+        </div>
+        <ion-input type="password" formControlName="password" clearInput placeholder="{{ 'LOGIN.password-input' | translate }}"></ion-input>
+        <div class="errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <span *ngIf="password.errors.minlength">
+            <small>{{ 'SIGNUP.validation_messages.password.minlength' | translate }}</small>
+          </span>
+          <span *ngIf="password.errors.required">
+            <small>{{ 'SIGNUP.validation_messages.password.required' | translate }}</small>
+          </span>
+        </div>
+        <ion-button fill="outline" color="primary" expand="block" class="login-btn" type="submit" [disabled]="!loginForm.valid">{{ 'LOGIN.Button' | translate }}
+        </ion-button>
+        <ion-button fill="clear" class="btn-passrecovery" routerLink="/signup">{{ 'LOGIN.Register' | translate }}</ion-button>
+        <ion-button fill="clear" class="btn-passrecovery" routerLink="/pass-recovery">{{ 'LOGIN.Forgot' | translate }}</ion-button>
+      </div>
+    </form>
+
+  </div>
+</ion-content>

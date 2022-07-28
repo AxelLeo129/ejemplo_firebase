@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill='clear' (click)="regresar()" slot="start">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <h3 innerHTML="{{ 'HELPAREAS.Introduction' | translate }}"></h3>
+        <p>{{ 'HELPAREAS.Instructions' | translate }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of areas; index as i">
+        <div class="help-card" (click)="setOption(item.id)"
+          [ngClass]="{ 'help-card-selected': optionSelected == item.id || optionSelected1 == item.id }">
+          <div class="help-img">
+            <img [src]="item.imagen" alt="">
+          </div>
+          <h5 [innerHTML]="item.titulo[index]"></h5>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button class="mimento-btn" (click)="nextPage()" [disabled]="optionSelected == '0'">
+          {{ 'HELPAREAS.Button' | translate }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,54 @@
+ion-grid {
+    margin-top: 10%;
+}
+header {
+    margin-bottom: 20px;
+}
+
+.mimento-btn {
+    width: 250px;
+}
+
+.not-accept-btn {
+    text-decoration: underline;
+    margin-right: 20px;
+}
+
+.datetime {
+    display: flex;
+    position: relative;
+    -ms-flex: 1;
+    flex: 1;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 !important;
+    background: var(--background);
+    color: var(--color);
+    font-family: var(--ion-font-family, inherit);
+    z-index: 2;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    ion-datetime {
+        min-width: 250px;
+        border: solid 1px var(--ion-color-medium-tint);
+        border-radius: 4px;
+        height: 50px;
+        max-width: 250px;
+        color: var(--ion-color-dark-shade);
+        margin: 0 auto 20px auto;
+    }
+}
+input {
+    background: transparent;
+    border: solid 1px var(--ion-color-medium-tint);
+    border-radius: 4px;
+    height: 50px;
+    max-width: 250px;
+    color: var(--ion-color-dark-shade);
+    margin: 0 auto 20px auto;
+    padding: 10px 20px 20px 20px;
+    --padding-start: 10px;
+    width: 100%;
+    text-align: center;
+}

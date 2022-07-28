@@ -1,0 +1,125 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+@font-face {
+  font-family: "recoleta";
+  src: url("./../assets/fonts/recoleta.ttf"), url("./../assets/fonts/recoleta.eot"),
+    url("./../assets/fonts/recoleta.otf") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "karla";
+  src: url("./../assets/fonts/karla.ttf"), url("./../assets/fonts/karla.eot"),
+    url("./../assets/fonts/karla.woff") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "karla-bold";
+  src: url("./../assets/fonts/karla-bold.ttf") format("embedded-opentype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+:root {
+  font-family: "karla";
+  --ion-font-family: "karla";
+  --ion-font-title: "recoleta";
+  --ion-font-bold: "recoleta";
+  /** primary **/
+  --ion-color-primary: #2e4294;
+  --ion-color-primary-rgb: 46, 66, 148;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #2e4394;
+  --ion-color-primary-tint: #3c58c5;
+
+  /** secondary **/
+  --ion-color-secondary: #faa242;
+  --ion-color-secondary-rgb: 250, 162, 66;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #fcc284;
+  --ion-color-secondary-tint: #f18528;
+
+  /** tertiary **/
+  --ion-color-tertiary: #b32649;
+  --ion-color-tertiary-rgb: 179, 38, 73;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #9b2240;
+  --ion-color-tertiary-tint: #dd2e5a;
+
+  /** success **/
+  --ion-color-success: #2dd36f;
+  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #28ba62;
+  --ion-color-success-tint: #42d77d;
+
+  /** warning **/
+  --ion-color-warning: #ffc409;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+
+  /** danger **/
+  --ion-color-danger: #eb3131;
+  --ion-color-danger-rgb: 235, 49, 49;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #da2f2f;
+  --ion-color-danger-tint: #ff3e3e;
+
+  /** dark **/
+  --ion-color-dark: #2e4294;
+  --ion-color-dark-rgb: 34, 36, 40;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #283777;
+  --ion-color-dark-tint: #3a53b8;
+
+  /** medium **/
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 245, 248;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+
+  /** Body **/
+  --ion-color-body: #fffbf6;
+  --ion-color-body-rgb: 255, 251, 246;
+  --ion-color-body-contrast: #000000;
+  --ion-color-body-contrast-rgb: 0, 0, 0;
+  --ion-color-body-shade: #fdf2e4;
+  --ion-color-body-tint: #ffffff;
+
+  /* Exercises colors */
+  --ion-color-white: #fff;
+  --ion-color-exercise-0: #bfbebd;
+  --ion-color-exercise-1: #77b9dc;
+  --ion-color-exercise-2: #7785b7;
+  --ion-color-exercise-3: #fcc284;
+  --ion-color-exercise-4: #cd7189;
+  --ion-color-exercise-5: #6f9d7e;
+  --ion-color-exercise-6: #626c7e;
+
+  /* Text color */
+  --ion-color-text: #3a3d44;
+  --ion-color-primary-10: #b2bbd7;
+}

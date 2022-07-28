@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <header>
+          <h3>{{ 'PROGRESSLIST.Title_date' | translate }}</h3>
+          <p>{{ user?.fecha_creacion | date:'dd/MM/yyyy' }}</p>          
+        </header>
+        <div class="divider"></div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div id="step8">
+          <h3 [innerHTML]="'PROGRESSLIST.Instruccions' | translate "></h3>
+          <div class="select-month">
+            <ion-datetime displayFormat="MMMM" [monthNames]="monthNames" [(ngModel)]="date_string" placeholder="{{placeholder}}"></ion-datetime>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!therapists">
+      <ion-col class="ion-text-center">
+        <div id="step2">
+          <p>{{ 'PROGRESSLIST.Therapist3' | translate }} <br>
+            {{ 'PROGRESSLIST.Therapist4' | translate }} <br>
+            <ion-toggle [(ngModel)]="share" (click)="permission()"></ion-toggle>
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!therapists">
+      <ion-col class="ion-text-center">
+        <div id="step3">
+          <p>{{ 'PROGRESSLIST.Therapist1' | translate }} <br>
+            <a (click)="changeThe()"> {{therapists?.nombre_publico}}</a> 
+          </p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-md="6" size-xs="12">
+        <div id="step4">
+          <ion-card class="progress-card" (click)="moodHistory()">
+            <ion-card-content>
+              <ion-icon name="happy-outline"></ion-icon>
+              <p>{{ 'PROGRESSLIST.Card1' | translate }}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+
+      <ion-col size-md="6" size-xs="12">
+        <div id="step5">
+          <ion-card class="progress-card" routerLink="/exercises-summary">
+            <ion-card-content>
+              <ion-icon name="list-outline"></ion-icon>
+              <p>{{ 'PROGRESSLIST.Card3' | translate }}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+
+      <ion-col size-md="6" size-xs="12">
+        <div id="step6">
+          <ion-card class="progress-card" (click)="Goals()">
+            <ion-card-content>
+              <ion-icon name="calendar-sharp" class="small-icon calendar-icon"></ion-icon>
+              <p>{{ 'PROGRESSLIST.Card5' | translate }}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col size-md="6" size-xs="12">
+        <div id="step7">
+          <ion-card class="progress-card" routerLink="/wellbeing-level">
+            <ion-card-content>
+              <ion-icon name="happy-outline"></ion-icon>
+              <p>{{ 'PROGRESSLIST.Card6' | translate }}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

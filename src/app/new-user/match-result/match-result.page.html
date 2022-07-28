@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ user?.nombre }}</h3>
+          <h4>{{ 'MATCHRESULTS.Description' | translate }}</h4>
+        </header>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="therapist-slider">
+
+          <ion-slides pager="true">
+            <ion-slide *ngFor="let item of therapists">
+              <div class="therapist-card">
+                <div class="therapist-img">
+                  <img width="80px" height="80px" [src]="item.imagen" alt="">
+                </div>
+                <div class="therapist-name">
+                  <h3> {{ item.nombre_publico }}</h3>
+                  <p>{{ item.titulo[index]}}</p>
+                </div>
+                <div class="divider"></div>
+                <div class="specialty">
+                  <!--  <ion-label>{{ 'MATCHRESULTS.Specialty' | translate }}</ion-label> -->
+                  <p>{{ item.especializacion[index]}}</p>
+                </div>
+                <!-- 
+                <div class="experience-days">
+                  <ion-row>
+                    
+                    <ion-col size="12">
+                      <ion-label>{{ 'MATCHRESULTS.Days' | translate }}</ion-label>
+                      <p>{{ item.dias_array}}.</p>
+                    </ion-col>
+                  </ion-row>
+                </div>
+                 -->
+                <ion-button class="select-btn" (click)="selectTherapist(item.uid)">
+                  {{ 'MATCHRESULTS.Button' | translate }}</ion-button>
+              </div>
+            </ion-slide>
+            <ion-slide *ngIf="!therapists.length">
+              <div class="therapist-card">
+                <div class="divider"></div>
+                <div class="therapist-name">
+                  <h3>
+                    {{ 'MATCHRESULTS.NoTherapist' | translate }}
+                  </h3>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </ion-slide>
+          </ion-slides>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

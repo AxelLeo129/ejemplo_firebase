@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()" fill="clear" slot="start">
+        <ion-icon slot="start" name="chevron-back-outline"></ion-icon>
+        {{'BACK' | translate}}
+      </ion-button>
+    </ion-buttons>
+    <ion-title slot="start">
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <header (click)="presentModal()">
+    <div class="gift-banner">
+      <h3 innerHTML="{{ 'NEEDHELP.THERAPIST' | translate }}"></h3>
+    </div>
+  </header>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <h3 innerHTML="{{'NEEDHELP.Title' | translate }}"></h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h4>{{'NEEDHELP.Description' | translate }}</h4>
+        <ion-button color="primary" fill="outline" class="buttons" routerLink="/help-areas">
+          {{'NEEDHELP.Button' | translate }}</ion-button>
+        <br>
+        <ion-button color="primary" fill="outline" class="buttons" routerLink="/selected-areas/HcSmE3tNPEWWP91H4Yi1/0">
+          {{'NEEDHELP.Button1' | translate }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

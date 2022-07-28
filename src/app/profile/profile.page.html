@@ -1,0 +1,209 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button fill='clear' slot="start" routerLink="/home">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+    <ion-button fill='clear' slot="end" (click)="signOut()">
+      <ion-icon name="log-in-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title' | translate }}</h3>
+        </div>
+        <ion-card>
+          <ion-card-content>
+            <h4>{{ 'PROFILE.Name' | translate }}</h4>
+            <p>{{user_data?.nombre}}</p>
+            <h4>{{ 'PROFILE.Birth' | translate }}</h4>
+            <p>{{user_data?.fecha_creacion | date:'dd/MM/yyyy' }}</p>
+            <h4>{{ 'PROFILE.Email' | translate }}</h4>
+            <p>{{user_data?.correo}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12" *ngIf="paquete != false && user_data?.subscrito">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title1' | translate }}</h3>
+        </div>
+        <ion-card class="card-my-subscription">
+          <ion-card-header>
+            <h3>{{ paquete?.nombre[index] }}</h3>
+            <h3>Q. {{ paquete?.precio }}</h3>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="divider"></div>
+            <h4>Chat:</h4>
+            <p>{{ 'PROFILE.Card' | translate }} {{ paquete?.dias_disponibles }}</p>
+            <h4>{{ 'PROFILE.Card1' | translate }}</h4>
+            <p>{{ 'PROFILE.Card2' | translate }} {{ paquete?.minutos_dia }}</p>
+            <h4>{{ 'PROFILE.Card3' | translate }}</h4>
+            <p>{{ 'PROFILE.Expires' | translate }} {{ user_data?.dias_disponibles }} {{ 'PROFILE.Days' | translate }}
+            </p>
+            <h4>{{ 'PROFILE.Card4' | translate }}</h4>
+            <div *ngFor="let t of conversacion?.temas">
+              <p *ngIf="temas && temas[t]">
+                <span [innerHTML]="removeBR(temas[t].titulo)"></span>:
+                <b [innerHTML]="temas[t].texto"></b>
+              </p>
+            </div>
+            <ion-button fill="clear" size="small" color="medium" (click)="cambiarAreasInteres()">
+              {{ 'PROFILE.ButtonCAI' | translate }}</ion-button>
+            <div class="divider"></div>
+          </ion-card-content>
+          <div class="card-footer ion-text-right">
+            <ion-button (click)="presentPopoverChangeSusbcription($event)" fill="clear" size="small" color="medium">
+              <ion-icon name="help-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" size="small" color="medium" (click)="presentAlertConfirm1()">
+              {{ 'PROFILE.Button3' | translate }}</ion-button>
+            <ion-button fill="clear" size="small" color="medium" (click)="changeMembership()">
+              {{ 'PROFILE.Button1' | translate }}</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12" *ngIf="therapist != false && user_data?.subscrito">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title2' | translate }}</h3>
+        </div>
+        <ion-card class="card-my-subscription">
+          <ion-card-content>
+            <br>
+            <h4> {{ therapist?.nombre_publico }}</h4>
+            <p>{{ therapist?.especializacion[index] }}</p>
+            <div class="divider"></div>
+          </ion-card-content>
+          <div class="card-footer ion-text-right">
+            <!-- <ion-button fill="clear" size="small" color="medium">{{ 'PROFILE.Button' | translate }}</ion-button> -->
+            <ion-button fill="clear" size="small" color="medium" (click)="changeTherapist()">
+              {{ 'PROFILE.Button1' | translate }}</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title7' | translate }}</h3>
+        </div>
+        <ion-card (click)="presentAlertConfirm()" class="request-session-card">
+          <ion-card-content>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            <p>{{ 'PROFILE.Title8' | translate }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title9' | translate }}</h3>
+        </div>
+        <ion-card (click)="presentAlertConfirm3()" class="request-session-card">
+          <ion-card-content>
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            <p>{{ 'PROFILE.Text9' | translate }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <div class="emergency-phone">
+            <h3>{{ 'PROFILE.Title6' | translate }} </h3>
+            <ion-input type="number" (ionBlur)="updateUser()" clearInput [(ngModel)]="telefono"
+              style="max-width: calc(100% - 16px);" placeholder="{{ 'PROFILE.Phone_placeholder' | translate }}"
+              class="user-phone-number"></ion-input>
+
+            <ion-input type="text" (ionBlur)="updateUser()" clearInput [(ngModel)]="contacto_emergencia"
+              style="max-width: calc(100% - 16px);" placeholder="{{ 'PROFILE.Name_placeholder' | translate }}"
+              class="user-phone-number"></ion-input>
+
+            <ion-input type="text" (ionBlur)="updateUser()" clearInput [(ngModel)]="relacion_emergencia"
+              style="max-width: calc(100% - 16px);" placeholder="{{ 'PROFILE.Relation_placeholder' | translate }}"
+              class="user-phone-number"></ion-input>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size-xs="12" *ngIf="payment_method != false">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title3' | translate }}</h3>
+        </div>
+        <ion-card class="card-my-payment-method">
+          <ion-card-content>
+            <h4>{{ 'PROFILE.Pay' | translate }}</h4>
+            <p>xxxx - xxxx - xxxx - {{ payment_method?.tarjeta }}</p>
+            <ion-row>
+              <ion-col>
+                <h4>{{ 'PROFILE.Pay1' | translate }}</h4>
+                <p>-- / --</p>
+              </ion-col>
+              <ion-col>
+                <h4>{{ 'PROFILE.Pay2' | translate }}</h4>
+                <div *ngIf="payment_method?.tipo == '001'; else master">
+                  <p>Visa</p>
+                </div>
+                <ng-template #master>
+                  <p>MasterCard</p>
+                </ng-template>
+              </ion-col>
+            </ion-row>
+            <div class="divider"></div>
+          </ion-card-content>
+          <div class="card-footer ion-text-right">
+            <ion-button fill="clear" size="small" (click)="presentModal()" color="medium">
+              {{ 'PROFILE.PayButton' | translate }}</ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title4' | translate }}</h3>
+        </div>
+        <ion-card class="card-links">
+          <ion-card-content>
+            <h4 (click)="presentAlertConfirm2()"><a>
+                <ion-icon name="help-circle-outline"></ion-icon> {{ 'PROFILE.Help' | translate }}
+              </a></h4>
+            <h4 (click)="shareApp()"><a>
+                <ion-icon name="share-social-outline"></ion-icon> {{ 'PROFILE.Share' | translate }}
+              </a></h4>
+            <h4 (click)="presentModal2()"><a>
+                <ion-icon name="information-circle-outline"></ion-icon> {{ 'PROFILE.About' | translate }}
+              </a></h4>
+            <h4 (click)="presentModalRateApp()"><a>
+                <ion-icon name="star-outline"></ion-icon> {{ 'PROFILE.Rate' | translate }}
+              </a></h4>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size-xs="12">
+        <div class="ion-text-center">
+          <h3>{{ 'PROFILE.Title5' | translate }}</h3>
+        </div>
+        <ion-card class="card-links">
+          <ion-card-content>
+            <h4><a (click)="presentModal3()">{{ 'PROFILE.Privacy' | translate }}</a></h4>
+            <h4><a (click)="presentModal1()">{{ 'PROFILE.Terms' | translate }}</a></h4>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

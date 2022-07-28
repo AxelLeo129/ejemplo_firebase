@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="logo">
+        <img src="assets/mimento-logo-horizontal.svg" alt="Logo App mimento">
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <header>
+          <h3>{{ 'WELLBEINGLEVEL.Titulo' | translate }} <br>
+            {{ data.titulo[index] }}</h3>
+          <br>
+          <p>{{ data.instrucciones[index] }}</p>
+        </header>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <div *ngFor="let item of data.preguntas">
+        <ion-col size-md="3" *ngIf="item.tipo == 'M'">
+          <ion-card class="questionnaire-card">
+            <ion-card-content>
+              <ion-icon name="clipboard-outline"></ion-icon>
+              <div class="ion-text-left">
+                <h4>{{ item.texto[index] }}</h4>
+              </div>
+            </ion-card-content>
+            <div class="card-footer">
+              <div class="divider"></div>
+              <div class="answers">
+                <p>
+                  <ion-checkbox></ion-checkbox> {{ 'WELLBEINGLEVEL.o1' | translate }}
+                </p>
+                <p>
+                  <ion-checkbox></ion-checkbox> {{ 'WELLBEINGLEVEL.o2' | translate }}
+                </p>
+                <p>
+                  <ion-checkbox></ion-checkbox> {{ 'WELLBEINGLEVEL.o3' | translate }}
+                </p>
+                <p>
+                  <ion-checkbox></ion-checkbox> {{ 'WELLBEINGLEVEL.o4' | translate }}
+                </p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+        <ion-col size-md="3" *ngIf="item.tipo == 'R'">
+          <ion-card class="questionnaire-card">
+            <ion-card-content>
+              <ion-icon name="clipboard-outline"></ion-icon>              
+              <div class="ion-text-left">
+                <h4>{{ item.texto[index] }}</h4>
+              </div>
+            </ion-card-content>
+            <div class="card-footer">
+              <div class="divider"></div>
+              <div class="answers">
+                <ion-icon slot="start" size="small" (click)="restar(item)" color="primary" name="remove-outline">
+                </ion-icon>
+
+                <ng5-slider [(value)]="item.value" [options]="options">
+                </ng5-slider>
+                <ion-icon slot="end" color="primary" (click)="sumar(item)" name="add-outline"></ion-icon>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+      </div>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button fill="outline" class="mimento-btn" (click)="save()">{{ 'WELLBEINGLEVEL.Button1' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-content>
+
+  <!-- Preguntar si quiere usar la función -->
+
+  <div *ngIf="type == 'bio'; else alert">
+    <div *ngIf="!fist_time || fist_time == null" class="autentication-container">
+      <h3 innerHTML="{{ 'BIOMODAL.Title' | translate }}"></h3>
+      <ng-lottie width="100%" height="200px" containerClass="moving-box" [options]="options1"></ng-lottie>
+      <p>{{ 'BIOMODAL.Description' | translate }}</p>
+      <ion-button (click)="aceptar()" class="mimento-btn">
+        {{ 'BIOMODAL.Button' | translate }}
+      </ion-button>
+      <ion-button (click)="denegar()" class="mimento-btn">
+        {{ 'BIOMODAL.Button1' | translate }}
+      </ion-button>
+    </div>
+
+    <!-- Perdir la autenitcación -->
+
+    <div *ngIf="fist_time" class="autentication-container padding-toponly">
+      <h3>{{ 'BIOMODAL.Title1' | translate }}</h3>
+      <div (click)="verifyType()" class="iont-text-center lottie-img">
+        <ng-lottie width="100%" height="200px" containerClass="moving-box" [options]="options2"></ng-lottie>
+      </div>
+    </div>
+  </div>
+  <ng-template #alert>
+    <div class="autentication-container padding-toponly">
+      <h3>{{ title }}</h3>
+      <p>{{ subTitle }}</p>
+      <div *ngIf="img_bool; else template" class="iont-text-center lottie-img">
+        <img [src]="img" alt="">
+      </div>
+      <ng-template #template>
+        <div innerHTML="template"> </div>
+      </ng-template>
+    </div>
+  </ng-template>
+
+</ion-content>

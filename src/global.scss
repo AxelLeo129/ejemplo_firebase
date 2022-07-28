@@ -1,0 +1,545 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// CUSTOM MIMENTO FONTS
+// :root{
+// 	@font-face {
+// 	  font-family: 'recoleta';
+// 	  src: url('assets/fonts/recoleta.ttf'),
+// 	       url('assets/fonts/recoleta.eot'),
+// 	       url('assets/fonts/recoleta.otf') format('embedded-opentype');
+// 	  font-weight: normal;
+// 	  font-style: normal;
+// 	}
+// 	@font-face {
+// 	  font-family: 'karla';
+// 	  src: url('assets/fonts/karla.ttf'),
+// 	       url('assets/fonts/karla.eot'),
+// 	       url('assets/fonts/karla.woff') format('embedded-opentype');
+// 	  font-weight: normal;
+// 	  font-style: normal;
+// 	}
+
+// 	font-family: "recoleta";
+// }
+
+// RESETS
+ion-header,
+ion-toolbar,
+ion-content {
+    --background: var(--ion-color-body);
+}
+ion-toolbar {
+    .logo {
+        text-align: center;
+        img {
+            height: 28px;
+        }
+    }
+}
+
+ion-header {
+    &.header-md:after {
+        background: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-family: var(--ion-font-title);
+    color: var(--ion-color-primary);
+}
+*,
+p,
+a {
+    font-family: "karla";
+}
+
+ion-button {
+    text-transform: initial;
+    border-radius: 4px !important;
+    --box-shadow: none;
+}
+
+.mimento-btn {
+    --background: var(--ion-color-body);
+    border: solid 1px var(--ion-color-primary);
+    color: var(--ion-color-primary);
+    width: 200px;
+    height: 50px;
+
+    &:hover {
+        --background: var(--ion-color-primary);
+        border-radius: 4px;
+        color: var(--ion-color-light);
+    }
+}
+
+.more-info-btn {
+    background: var(--ion-color-medium-tint);
+    color: var(--ion-color-white);
+    border-radius: 100px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.emergency-phone-description {
+    margin-top: 30%;
+    ion-icon {
+        font-size: 3rem;
+    }
+}
+
+// TITLES & SUB-TITLES
+.title {
+    color: var(--ion-color-primary);
+    font-size: 1.6rem;
+    font-family: "recoleta";
+    margin: 0px;
+}
+.description {
+    color: var(--ion-color-primary);
+    font-size: 1rem;
+    font-family: "karla";
+    margin: 0px;
+}
+
+// INPUTS
+ion-input {
+    background: var(--ion-color-white);
+    border: solid 1px var(--ion-color-medium-tint);
+    border-radius: 4px;
+    height: 50px;
+    max-width: 250px;
+    color: var(--ion-color-dark-shade);
+    margin: 0 auto 20px auto;
+    padding: 10px 20px 20px 20px;
+    --padding-start: 10px;
+}
+
+.native-input {
+    border: solid 1px red;
+}
+
+ion-textarea {
+    @extend ion-input;
+    height: 120px;
+    text-align: left;
+    padding: 10px;
+}
+
+.errors {
+    background: var(--ion-color-danger);
+    border-radius: 4px;
+    color: var(--ion-color-white);
+    padding: 10px 20px 20px 20px;
+    margin: 0 auto 20px auto;
+    width: 90%;
+    text-align: left;
+}
+
+// STYLES FOR COMMENT BANNER, FOR DEV
+.comments-to-dev {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 8px;
+    border: solid 4px orange;
+    color: orangered;
+    margin: 20px;
+}
+
+// SUBSCRIPTION CARDS
+.divider {
+    background: #e1e1e1;
+    height: 1px;
+    margin: 20px 0;
+}
+.subscription-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px 0 20px;
+    width: 80%;
+
+    * {
+        color: var(--ion-color-primary);
+    }
+
+    .subscription-name {
+        h3,
+        p {
+            margin: 0px;
+        }
+        h3 {
+            font-size: 2.2rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }
+
+    .features {
+        margin-bottom: 20px;
+        ion-label {
+            font-size: 1.1rem;
+        }
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+            margin: 0 0 10px 0;
+        }
+    }
+    .price {
+        h3 {
+            font-size: 2.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+        * {
+            margin: 0px;
+        }
+        span {
+            font-size: 1.2rem;
+            margin-top: 4px;
+            margin-right: 4px;
+        }
+        small {
+            font-size: 0.8rem;
+        }
+    }
+    .select-btn {
+        --background: white;
+        border: solid 1px var(--ion-color-primary);
+        --border-radius: 4px;
+        color: var(--ion-color-primary);
+        margin-bottom: -20px;
+        letter-spacing: initial;
+        font-size: 1rem;
+    }
+    &__ultimate {
+        border: solid 1px var(--ion-color-primary);
+    }
+}
+
+// EXERCISES CARDS STYLES
+.exercise-card {
+    background-color: var(--ion-color-exercise-0);
+    //background-image: url(/assets/imgs/mimento-card-bg.svg);
+    //background-repeat: no-repeat;
+    //background-position: bottom right;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 120px;
+
+    * {
+        color: var(--ion-color-white);
+    }
+    .exercise-time {
+        font-weight: 300;
+    }
+    .exercise-bg-img {
+        text-align: center;
+        img {
+            width: 60%;
+        }
+    }
+}
+
+.exercise-1 {
+    background-color: var(--ion-color-exercise-1) !important;
+    --background: var(--ion-color-exercise-1) !important;
+}
+.exercise-2 {
+    background-color: var(--ion-color-exercise-2) !important;
+    --background: var(--ion-color-exercise-2) !important;
+}
+.exercise-3 {
+    background-color: var(--ion-color-exercise-3) !important;
+    --background: var(--ion-color-exercise-3) !important;
+}
+.exercise-4 {
+    background-color: var(--ion-color-exercise-4) !important;
+    --background: var(--ion-color-exercise-4) !important;
+}
+.exercise-5 {
+    background-color: var(--ion-color-exercise-5) !important;
+    --background: var(--ion-color-exercise-5) !important;
+}
+.exercise-6 {
+    background-color: var(--ion-color-exercise-6) !important;
+    --background: var(--ion-color-exercise-6) !important;
+}
+
+// PROGRESS CARDS STYLES
+.progress-card {
+    border: solid 1px var(--ion-color-primary-10);
+    margin: 0 10px 10px 10px;
+    box-shadow: none;
+
+    ion-card-content {
+        display: flex;
+        align-items: center;
+
+        ion-icon {
+            color: var(--ion-color-primary-10);
+            margin-right: 15px;
+            font-size: 3rem;
+        }
+        .small-icon {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.3rem;
+        }
+    }
+}
+
+.responses-card {
+    @extend .progress-card;
+    border: none;
+
+    ion-card-content {
+        ion-icon {
+            color: var(--ion-color-primary-10);
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.2rem;
+        }
+        a {
+            color: var(--ion-color-primary-10);
+        }
+    }
+}
+
+.goal-card {
+    @extend .responses-card;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+
+    ion-card-content {
+        position: relative;
+        color: var(--ion-color-primary);
+
+        ion-icon {
+            font-size: 2.5rem;
+            color: var(--ion-color-primary);
+        }
+        .delete-goal-btn {
+            font-size: 1.4rem;
+            position: absolute;
+            right: 0px;
+        }
+    }
+    .card-footer {
+        padding: 0 20px 10px 20px;
+        color: var(--ion-color-primary-10);
+        .dates,
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            ion-icon {
+                font-size: 1.4rem;
+            }
+            p {
+                text-align: left;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__completed {
+        border: solid 1px var(--ion-color-success);
+
+        ion-card-content {
+            color: var(--ion-color-success);
+            ion-icon {
+                color: var(--ion-color-success);
+                font-size: 4rem;
+            }
+        }
+        .actions {
+            p {
+                color: var(--ion-color-primary);
+            }
+        }
+    }
+}
+
+.questionnaire-card {
+    @extend .goal-card;
+
+    ion-card-content {
+        h3 {
+            font-size: 1.4rem;
+        }
+        p {
+            color: var(--ion-color-primary-10);
+        }
+    }
+}
+
+// CONTENT STYLES - TERMS / RESPONSE DETAIL
+.terms {
+    background: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.116);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 10px;
+    text-align: left;
+    line-height: 1.3rem;
+
+    p,
+    ul,
+    li {
+        margin: 0 0 15px 0;
+        font-weight: 300;
+        font-size: 0.9rem;
+    }
+    ul {
+        margin-left: -20px;
+    }
+}
+
+.response-cotent {
+    @extend .terms;
+    margin-bottom: 20px;
+}
+
+ion-modal.with-top {
+    --border-radius: 40px 40px 0 0;
+    align-items: flex-end !important;
+    --height: 90% !important;
+    --background: transparent;
+    @media screen and (max-width: 420px) {
+        --height: 90% !important;
+    }
+}
+
+ion-modal.with-top1 {
+    --border-radius: 40px 40px 0 0;
+    align-items: flex-end !important;
+    --height: 90% !important;
+    --background: transparent;
+    @media screen and (max-width: 420px) {
+        --height: 90% !important;
+    }
+}
+
+.introjs-helperLayer {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.introjs-helperNumberLayer,
+.introjs-progressbar {
+    background-color: var(--ion-color-primary) !important;
+    background: var(--ion-color-primary) !important;
+}
+.introjs-button {
+    border: none !important;
+}
+
+.transparente {
+    --background: transparent;
+    background-color: transparent;
+}
+
+.ng5-slider .ng5-slider-pointer {
+    background-color: var(--ion-color-primary) !important;
+}
+
+.select-month {
+    border: solid 1px var(--ion-color-primary-10);
+    margin: 0 10px 10px 10px;
+}
+.date-border {
+    border: solid 1px var(--ion-color-primary-10);
+}
+.change-orientation {
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+
+    position: absolute;
+    top: -100vw;
+    left: 0;
+
+    height: 100vw;
+    width: 100vh;
+
+    background-color: #000;
+    color: #fff;
+
+    overflow: auto;
+}
+
+.option-btn .button-inner {
+    min-height: 20px;
+}
+
+mwl-gauge {
+    width: 150px;
+    height: 150px;
+    display: block;
+    padding: 10px;
+}
+mwl-gauge > .gauge > .dial {
+    stroke: #eee;
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, 0);
+}
+mwl-gauge > .gauge > .value {
+    stroke: rgb(47, 227, 255);
+    stroke-width: 2;
+    fill: rgba(0, 0, 0, 0);
+}
+mwl-gauge > .gauge > .value-text {
+    fill: rgb(47, 227, 255);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.gauge-chart__label {
+    font-size: 28px !important;
+    margin-top: -50px !important;
+    font-family: "karla" !important;
+}
